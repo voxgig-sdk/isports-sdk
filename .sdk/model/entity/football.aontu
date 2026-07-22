@@ -1,0 +1,178 @@
+# Entity: football
+
+main: kit: entity: football: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "code"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "data"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "message"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "football"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "ycOrrj2NLYdzuOBr"
+                kind: "query"
+                name: "api_key"
+                orig: "api_key"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "league_id"
+                orig: "league_id"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "season"
+                orig: "season"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "team_id"
+                orig: "team_id"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/sport/football/stats"
+          parts: [
+            "sport"
+            "football"
+            "stats"
+          ]
+          select: {
+            "$action": "stat"
+            exist: [
+              "api_key"
+              "league_id"
+              "season"
+              "team_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: "ycOrrj2NLYdzuOBr"
+                kind: "query"
+                name: "api_key"
+                orig: "api_key"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "league_id"
+                orig: "league_id"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "match_id"
+                orig: "match_id"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/sport/football/livescores"
+          parts: [
+            "sport"
+            "football"
+            "livescores"
+          ]
+          select: {
+            "$action": "livescore"
+            exist: [
+              "api_key"
+              "league_id"
+              "match_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: "ycOrrj2NLYdzuOBr"
+                kind: "query"
+                name: "api_key"
+                orig: "api_key"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: 1639
+                kind: "query"
+                name: "league_id"
+                orig: "league_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/sport/football/schedule/basic"
+          parts: [
+            "sport"
+            "football"
+            "schedule"
+            "basic"
+          ]
+          select: {
+            exist: [
+              "api_key"
+              "league_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

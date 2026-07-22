@@ -1,0 +1,33 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "iSports API Support"
+        url: "https://www.isportsapi.com/en/docs.html"
+      }
+      description: "The iSports API provides developers with access to various sports data, including live scores, statistics, and historical databases for football and basketball. Users can leverage this API to integrate real-time sports information into their applications, enhancing user engagement and experience."
+      security: {
+        in: "query"
+        name: "api_key"
+        prefix: ""
+        scheme: "ApiKeyAuth"
+        type: "apiKey"
+      }
+      servers: [
+        {
+          description: "iSports API Server"
+          url: "http://api.isportsapi.com"
+        }
+      ]
+      summary: "The iSports API provides developers with access to various sports data, including live scores, statistics, and historical databases for football and basketball."
+      termsOfService: "https://www.isportsapi.com"
+      title: "iSports API"
+      version: "1.0.0"
+      website: "https://www.isportsapi.com/en/docs.html"
+    }
+  }
+}
+

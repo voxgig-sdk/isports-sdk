@@ -1,0 +1,22 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 1
+  metrics: count: path: 3
+  metrics: count: method: 3
+
+  entity: football: {
+    path: "/sport/football/livescores": {
+      action: "livescore": {}
+      op: load: method: *GET
+    }
+    path: "/sport/football/schedule/basic": {
+      op: load: method: *GET
+    }
+    path: "/sport/football/stats": {
+      action: "stat": {}
+      op: load: method: *GET
+    }
+  }
+
+}

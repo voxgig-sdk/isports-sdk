@@ -1,0 +1,28 @@
+# BasicFootballFlow
+
+main: kit: flow: BasicFootballFlow:
+{
+  entity: "football",
+  kind: "basic",
+  name: "BasicFootballFlow",
+  step: [
+    {
+      input: {
+        ref: "football_ref01",
+        srcdatavar: "football_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-football_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFootballFlow"
+}

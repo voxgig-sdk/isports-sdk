@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// Isports SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+IsportsUtility::setRegistrar(function (IsportsUtility $u): void {
+    $u->clean = [IsportsClean::class, 'call'];
+    $u->done = [IsportsDone::class, 'call'];
+    $u->make_error = [IsportsMakeError::class, 'call'];
+    $u->feature_add = [IsportsFeatureAdd::class, 'call'];
+    $u->feature_hook = [IsportsFeatureHook::class, 'call'];
+    $u->feature_init = [IsportsFeatureInit::class, 'call'];
+    $u->fetcher = [IsportsFetcher::class, 'call'];
+    $u->make_fetch_def = [IsportsMakeFetchDef::class, 'call'];
+    $u->make_context = [IsportsMakeContext::class, 'call'];
+    $u->make_options = [IsportsMakeOptions::class, 'call'];
+    $u->make_request = [IsportsMakeRequest::class, 'call'];
+    $u->make_response = [IsportsMakeResponse::class, 'call'];
+    $u->make_result = [IsportsMakeResult::class, 'call'];
+    $u->make_point = [IsportsMakePoint::class, 'call'];
+    $u->make_spec = [IsportsMakeSpec::class, 'call'];
+    $u->make_url = [IsportsMakeUrl::class, 'call'];
+    $u->param = [IsportsParam::class, 'call'];
+    $u->prepare_auth = [IsportsPrepareAuth::class, 'call'];
+    $u->prepare_body = [IsportsPrepareBody::class, 'call'];
+    $u->prepare_headers = [IsportsPrepareHeaders::class, 'call'];
+    $u->prepare_method = [IsportsPrepareMethod::class, 'call'];
+    $u->prepare_params = [IsportsPrepareParams::class, 'call'];
+    $u->prepare_path = [IsportsPreparePath::class, 'call'];
+    $u->prepare_query = [IsportsPrepareQuery::class, 'call'];
+    $u->result_basic = [IsportsResultBasic::class, 'call'];
+    $u->result_body = [IsportsResultBody::class, 'call'];
+    $u->result_headers = [IsportsResultHeaders::class, 'call'];
+    $u->transform_request = [IsportsTransformRequest::class, 'call'];
+    $u->transform_response = [IsportsTransformResponse::class, 'call'];
+});

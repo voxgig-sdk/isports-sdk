@@ -1,0 +1,502 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "iSports API",
+    "description": "The iSports API provides developers with access to various sports data, including live scores, statistics, and historical databases for football and basketball. Users can leverage this API to integrate real-time sports information into their applications, enhancing user engagement and experience.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "iSports API Support",
+      "url": "https://www.isportsapi.com/en/docs.html"
+    },
+    "termsOfService": "https://www.isportsapi.com"
+  },
+  "servers": [
+    {
+      "url": "http://api.isportsapi.com",
+      "description": "iSports API Server"
+    }
+  ],
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/sport/football/schedule/basic": {
+      "get": {
+        "summary": "Get Football Schedule & Results",
+        "description": "Retrieve football schedule and results for a specific league (e.g., Premier League). Returns basic schedule information including match fixtures and results.",
+        "operationId": "getFootballSchedule",
+        "tags": [
+          "Football"
+        ],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "query",
+            "description": "API key for authentication",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ycOrrj2NLYdzuOBr"
+          },
+          {
+            "name": "leagueId",
+            "in": "query",
+            "description": "The unique identifier for the football league",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1639
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with football schedule and results data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer",
+                      "description": "Response status code"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Response message"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "schedule": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "matchId": {
+                                "type": "integer",
+                                "description": "Unique match identifier"
+                              },
+                              "leagueId": {
+                                "type": "integer",
+                                "description": "League identifier"
+                              },
+                              "homeTeam": {
+                                "type": "string",
+                                "description": "Home team name"
+                              },
+                              "awayTeam": {
+                                "type": "string",
+                                "description": "Away team name"
+                              },
+                              "matchTime": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Match date and time"
+                              },
+                              "status": {
+                                "type": "string",
+                                "description": "Match status"
+                              },
+                              "score": {
+                                "type": "object",
+                                "properties": {
+                                  "home": {
+                                    "type": "integer"
+                                  },
+                                  "away": {
+                                    "type": "integer"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters"
+          },
+          "401": {
+            "description": "Unauthorized - Invalid API key"
+          },
+          "404": {
+            "description": "Not found - League not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/sport/football/stats": {
+      "get": {
+        "summary": "Get Football Stats",
+        "description": "Retrieve football statistics including team and player performance metrics, standings, and historical data.",
+        "operationId": "getFootballStats",
+        "tags": [
+          "Football"
+        ],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "query",
+            "description": "API key for authentication",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ycOrrj2NLYdzuOBr"
+          },
+          {
+            "name": "leagueId",
+            "in": "query",
+            "description": "The unique identifier for the football league",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "teamId",
+            "in": "query",
+            "description": "The unique identifier for the team",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "season",
+            "in": "query",
+            "description": "Season year for statistics",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with football statistics data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer",
+                      "description": "Response status code"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Response message"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "stats": {
+                          "type": "object",
+                          "properties": {
+                            "teamStats": {
+                              "type": "object",
+                              "properties": {
+                                "matchesPlayed": {
+                                  "type": "integer"
+                                },
+                                "wins": {
+                                  "type": "integer"
+                                },
+                                "draws": {
+                                  "type": "integer"
+                                },
+                                "losses": {
+                                  "type": "integer"
+                                },
+                                "goalsFor": {
+                                  "type": "integer"
+                                },
+                                "goalsAgainst": {
+                                  "type": "integer"
+                                },
+                                "points": {
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "playerStats": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "playerId": {
+                                    "type": "integer"
+                                  },
+                                  "playerName": {
+                                    "type": "string"
+                                  },
+                                  "goals": {
+                                    "type": "integer"
+                                  },
+                                  "assists": {
+                                    "type": "integer"
+                                  },
+                                  "appearances": {
+                                    "type": "integer"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters"
+          },
+          "401": {
+            "description": "Unauthorized - Invalid API key"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/sport/football/livescores": {
+      "get": {
+        "summary": "Get Football Live Scores",
+        "description": "Retrieve real-time live scores for ongoing football matches. This endpoint provides up-to-date information on current match scores, match status, and live events.",
+        "operationId": "getFootballLiveScores",
+        "tags": [
+          "Football"
+        ],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "query",
+            "description": "API key for authentication",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ycOrrj2NLYdzuOBr"
+          },
+          {
+            "name": "leagueId",
+            "in": "query",
+            "description": "Filter by specific league ID",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "matchId",
+            "in": "query",
+            "description": "Filter by specific match ID",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with live football scores",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer",
+                      "description": "Response status code"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Response message"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "matches": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "matchId": {
+                                "type": "integer",
+                                "description": "Unique match identifier"
+                              },
+                              "leagueId": {
+                                "type": "integer",
+                                "description": "League identifier"
+                              },
+                              "leagueName": {
+                                "type": "string",
+                                "description": "League name"
+                              },
+                              "homeTeam": {
+                                "type": "object",
+                                "properties": {
+                                  "teamId": {
+                                    "type": "integer"
+                                  },
+                                  "teamName": {
+                                    "type": "string"
+                                  },
+                                  "logo": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "awayTeam": {
+                                "type": "object",
+                                "properties": {
+                                  "teamId": {
+                                    "type": "integer"
+                                  },
+                                  "teamName": {
+                                    "type": "string"
+                                  },
+                                  "logo": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "score": {
+                                "type": "object",
+                                "properties": {
+                                  "home": {
+                                    "type": "integer"
+                                  },
+                                  "away": {
+                                    "type": "integer"
+                                  }
+                                }
+                              },
+                              "matchTime": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Match start time"
+                              },
+                              "status": {
+                                "type": "string",
+                                "description": "Match status (e.g., live, halftime, finished)",
+                                "enum": [
+                                  "scheduled",
+                                  "live",
+                                  "halftime",
+                                  "finished",
+                                  "postponed",
+                                  "cancelled"
+                                ]
+                              },
+                              "minute": {
+                                "type": "integer",
+                                "description": "Current match minute"
+                              },
+                              "events": {
+                                "type": "array",
+                                "description": "Live match events",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "eventType": {
+                                      "type": "string",
+                                      "enum": [
+                                        "goal",
+                                        "yellow_card",
+                                        "red_card",
+                                        "substitution"
+                                      ]
+                                    },
+                                    "minute": {
+                                      "type": "integer"
+                                    },
+                                    "player": {
+                                      "type": "string"
+                                    },
+                                    "team": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters"
+          },
+          "401": {
+            "description": "Unauthorized - Invalid API key"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "query",
+        "name": "api_key",
+        "description": "API key required for authentication. You can obtain your API key from the iSports API dashboard."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "Error code"
+          },
+          "message": {
+            "type": "string",
+            "description": "Error message"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Football",
+      "description": "Football/Soccer related endpoints for live scores, schedules, results, and statistics"
+    },
+    {
+      "name": "Basketball",
+      "description": "Basketball related endpoints (available in full API documentation)"
+    }
+  ],
+  "externalDocs": {
+    "description": "Full API Documentation",
+    "url": "https://www.isportsapi.com/en/docs.html"
+  }
+}
