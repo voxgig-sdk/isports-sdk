@@ -30,23 +30,23 @@ module IsportsConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "code",
+              "name" => "matches",
               "req" => false,
-              "type" => "`$INTEGER`",
+              "type" => "`$ARRAY`",
               "index$" => 0,
             },
             {
               "active" => true,
-              "name" => "data",
+              "name" => "schedule",
               "req" => false,
-              "type" => "`$OBJECT`",
+              "type" => "`$ARRAY`",
               "index$" => 1,
             },
             {
               "active" => true,
-              "name" => "message",
+              "name" => "stats",
               "req" => false,
-              "type" => "`$STRING`",
+              "type" => "`$OBJECT`",
               "index$" => 2,
             },
           ],
@@ -95,6 +95,7 @@ module IsportsConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/sport/football/stats",
                   "parts" => [
@@ -113,7 +114,7 @@ module IsportsConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.data`",
                   },
                   "index$" => 0,
                 },
@@ -148,6 +149,7 @@ module IsportsConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/sport/football/livescores",
                   "parts" => [
@@ -165,7 +167,7 @@ module IsportsConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.data`",
                   },
                   "index$" => 1,
                 },
@@ -193,6 +195,7 @@ module IsportsConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/sport/football/schedule/basic",
                   "parts" => [
@@ -209,7 +212,7 @@ module IsportsConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.data`",
                   },
                   "index$" => 2,
                 },

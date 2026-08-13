@@ -15,16 +15,16 @@ declare(strict_types=1);
 /** Football entity data model. */
 class Football
 {
-    public ?int $code = null;
-    public ?array $data = null;
-    public ?string $message = null;
+    public ?array $matches = null;
+    public ?array $schedule = null;
+    public ?array $stats = null;
 }
 
 /** Request payload for Football#load. */
 class FootballLoadMatch
 {
-    public ?int $code = null;
-    public ?array $data = null;
-    public ?string $message = null;
+    public ?array $matches = null;
+    public ?array $schedule = null;
+    public ?array $stats = null;
 }
 

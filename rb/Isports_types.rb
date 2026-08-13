@@ -10,35 +10,35 @@
 
 # Football entity data model.
 #
-# @!attribute [rw] code
-#   @return [Integer, nil]
+# @!attribute [rw] matches
+#   @return [Array, nil]
 #
-# @!attribute [rw] data
+# @!attribute [rw] schedule
+#   @return [Array, nil]
+#
+# @!attribute [rw] stats
 #   @return [Hash, nil]
-#
-# @!attribute [rw] message
-#   @return [String, nil]
 Football = Struct.new(
-  :code,
-  :data,
-  :message,
+  :matches,
+  :schedule,
+  :stats,
   keyword_init: true
 )
 
 # Request payload for Football#load.
 #
-# @!attribute [rw] code
-#   @return [Integer, nil]
+# @!attribute [rw] matches
+#   @return [Array, nil]
 #
-# @!attribute [rw] data
+# @!attribute [rw] schedule
+#   @return [Array, nil]
+#
+# @!attribute [rw] stats
 #   @return [Hash, nil]
-#
-# @!attribute [rw] message
-#   @return [String, nil]
 FootballLoadMatch = Struct.new(
-  :code,
-  :data,
-  :message,
+  :matches,
+  :schedule,
+  :stats,
   keyword_init: true
 )
 

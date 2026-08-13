@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = IsportsSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = IsportsSDK.test({
+  entity: {
+    football: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const football = await client.Football().load()
-// football is a bare Football populated with mock data
+// football is the Football entity, populated with mock data
+// — call football.data() for the record itself
 console.log(football)
 ```
 
@@ -155,7 +164,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Football** | The Football entity (load). | `/sport/football/stats` |
+| **Football** | The Football entity (load). | `/sport/football/schedule/basic` |
 
 The operations available across these entities are **load** — see each entity's
 own list above for exactly which it supports.
@@ -189,7 +198,7 @@ $client = new IsportsSDK([
 ]);
 
 
-// Load a specific football (returns the bare record; throws on error)
+// Load a specific football (returns the ENTITY; call data_get() for the record; throws on error)
 $football = $client->Football()->load();
 print_r($football);
 ```
@@ -221,7 +230,7 @@ client = IsportsSDK.new({
 })
 
 
-# Load a specific football (returns the bare record; raises on error)
+# Load a specific football (returns the ENTITY; call data_get for the record)
 football = client.Football.load()
 puts football
 ```
@@ -357,6 +366,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://www.isportsapi.com/en/docs.html](https://www.isportsapi.com/en/docs.html)
 

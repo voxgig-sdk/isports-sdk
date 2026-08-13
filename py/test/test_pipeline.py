@@ -16,11 +16,11 @@
 import pytest
 
 from isports_sdk import IsportsSDK
-from core.error import IsportsError
-from core.result import IsportsResult
-from core.response import IsportsResponse
-from core.spec import IsportsSpec
-from feature.base_feature import IsportsBaseFeature
+from isports_sdk.core.error import IsportsError
+from isports_sdk.core.result import IsportsResult
+from isports_sdk.core.response import IsportsResponse
+from isports_sdk.core.spec import IsportsSpec
+from isports_sdk.feature.base_feature import IsportsBaseFeature
 
 
 def _client():

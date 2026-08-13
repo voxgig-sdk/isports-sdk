@@ -117,9 +117,30 @@ const football = client.Football()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `number` | No |  |
-| `data` | `Record<string, any>` | No |  |
-| `message` | `string` | No |  |
+| `matches` | `any[]` | No |  |
+| `schedule` | `any[]` | No |  |
+| `stats` | `Record<string, any>` | No |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `livescore` | `/sport/football/livescores` | `client.Football().load({ $action: 'livescore', ... })` |
+| `stat` | `/sport/football/stats` | `client.Football().load({ $action: 'stat', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Football record — check the API definition for its shape.
+
+```ts
+const result = await client.Football().load({
+  $action: 'livescore',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 

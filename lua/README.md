@@ -229,9 +229,9 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `data` |  |
-| `message` |  |
+| `matches` |  |
+| `schedule` |  |
+| `stats` |  |
 
 Operations: Load.
 
@@ -256,9 +256,9 @@ Create an instance: `local football = client:Football(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `number` |  |
-| `data` | `table` |  |
-| `message` | `string` |  |
+| `matches` | `table` |  |
+| `schedule` | `table` |  |
+| `stats` | `table` |  |
 
 #### Example: Load
 

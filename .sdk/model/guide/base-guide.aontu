@@ -9,13 +9,16 @@ guide: {
     path: "/sport/football/livescores": {
       action: "livescore": {}
       op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
     }
     path: "/sport/football/schedule/basic": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
     }
     path: "/sport/football/stats": {
       action: "stat": {}
       op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
     }
   }
 

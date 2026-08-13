@@ -94,9 +94,9 @@ football = client.Football
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `Integer` | No |  |
-| `data` | `Hash` | No |  |
-| `message` | `String` | No |  |
+| `matches` | `Array` | No |  |
+| `schedule` | `Array` | No |  |
+| `stats` | `Hash` | No |  |
 
 ### Operations
 

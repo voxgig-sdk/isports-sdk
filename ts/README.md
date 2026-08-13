@@ -123,7 +123,8 @@ Create a mock client for unit testing — no server required:
 const client = IsportsSDK.test()
 
 const football = await client.Football().load()
-// football is a bare entity populated with mock response data
+// football is the entity, populated with mock response data
+// — call football.data() for the record itself
 console.log(football)
 ```
 
@@ -290,9 +291,9 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `data` |  |
-| `message` |  |
+| `matches` |  |
+| `schedule` |  |
+| `stats` |  |
 
 Operations: load.
 
@@ -317,9 +318,9 @@ Create an instance: `const football = client.Football()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `number` |  |
-| `data` | `Record<string, any>` |  |
-| `message` | `string` |  |
+| `matches` | `any[]` |  |
+| `schedule` | `any[]` |  |
+| `stats` | `Record<string, any>` |  |
 
 #### Example: Load
 

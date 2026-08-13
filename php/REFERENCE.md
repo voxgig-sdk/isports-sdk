@@ -93,9 +93,9 @@ $football = $client->Football();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `int` | No |  |
-| `data` | `array` | No |  |
-| `message` | `string` | No |  |
+| `matches` | `array` | No |  |
+| `schedule` | `array` | No |  |
+| `stats` | `array` | No |  |
 
 ### Operations
 

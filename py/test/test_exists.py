@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Isports SDK exists test
 
 import pytest
 from isports_sdk import IsportsSDK

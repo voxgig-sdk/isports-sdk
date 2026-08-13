@@ -6,14 +6,20 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Football {
-  code?: number
-  data?: Record<string, any>
-  message?: string
+  matches?: any[]
+  schedule?: any[]
+  stats?: Record<string, any>
 }
 
 export interface FootballLoadMatch {
-  code?: number
-  data?: Record<string, any>
-  message?: string
+  matches?: any[]
+  schedule?: any[]
+  stats?: Record<string, any>
+
+  // Selects a custom action instead of the plain load:
+  //   'livescore' | 'stat'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 

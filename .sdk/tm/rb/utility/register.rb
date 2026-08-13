@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ IsportsUtility.registrar = ->(u) {
   u.prepare_params = IsportsUtilities::PrepareParams
   u.prepare_path = IsportsUtilities::PreparePath
   u.prepare_query = IsportsUtilities::PrepareQuery
+  u.graphql_body = IsportsUtilities::GraphqlBody
+  u.graphql_errors = IsportsUtilities::GraphqlErrors
   u.result_basic = IsportsUtilities::ResultBasic
   u.result_body = IsportsUtilities::ResultBody
   u.result_headers = IsportsUtilities::ResultHeaders

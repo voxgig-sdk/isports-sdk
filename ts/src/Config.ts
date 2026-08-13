@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Isports',
   }
 
 
@@ -60,23 +60,23 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "code",
+          "name": "matches",
           "req": false,
-          "type": "`$INTEGER`",
+          "type": "`$ARRAY`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "data",
+          "name": "schedule",
           "req": false,
-          "type": "`$OBJECT`",
+          "type": "`$ARRAY`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "message",
+          "name": "stats",
           "req": false,
-          "type": "`$STRING`",
+          "type": "`$OBJECT`",
           "index$": 2
         }
       ],
@@ -125,6 +125,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/sport/football/stats",
               "parts": [
@@ -143,7 +144,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "index$": 0
             },
@@ -178,6 +179,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/sport/football/livescores",
               "parts": [
@@ -195,7 +197,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "index$": 1
             },
@@ -223,6 +225,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/sport/football/schedule/basic",
               "parts": [
@@ -239,7 +242,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "index$": 2
             }

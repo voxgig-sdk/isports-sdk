@@ -2,21 +2,21 @@
   "existing": {
     "football": {
       "FOOTBALL00": {
-        "code": "s1e",
-        "data": {},
-        "message": "s20",
+        "matches": [],
+        "schedule": [],
+        "stats": {},
         "id": "FOOTBALL00"
       },
       "FOOTBALL01": {
-        "code": "s3c",
-        "data": {},
-        "message": "s3e",
+        "matches": [],
+        "schedule": [],
+        "stats": {},
         "id": "FOOTBALL01"
       },
       "FOOTBALL02": {
-        "code": "s5a",
-        "data": {},
-        "message": "s5c",
+        "matches": [],
+        "schedule": [],
+        "stats": {},
         "id": "FOOTBALL02"
       }
     }
@@ -24,9 +24,9 @@
   "new": {
     "football": {
       "football_ref01": {
-        "code": "s78",
-        "data": {},
-        "message": "s7a"
+        "matches": [],
+        "schedule": [],
+        "stats": {}
       }
     }
   }

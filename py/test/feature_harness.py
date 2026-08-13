@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import IsportsControl
-from core.error import IsportsError
-from core.result import IsportsResult
-from core.spec import IsportsSpec
+from isports_sdk.config import make_config
+from isports_sdk.features import _make_feature
+from isports_sdk.core.control import IsportsControl
+from isports_sdk.core.error import IsportsError
+from isports_sdk.core.result import IsportsResult
+from isports_sdk.core.spec import IsportsSpec
 
 
 # True when this SDK was generated with the named feature.

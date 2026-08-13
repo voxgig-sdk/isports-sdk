@@ -62,7 +62,7 @@ describe('FootballEntity', async () => {
     // LOAD
     const football_ref01_ent = client.Football()
     const football_ref01_match_dt0: any = {}
-    const football_ref01_data_dt0 = await football_ref01_ent.load(football_ref01_match_dt0)
+    const football_ref01_data_dt0 = (await football_ref01_ent.load(football_ref01_match_dt0)).data()
     assert(null != football_ref01_data_dt0)
 
 

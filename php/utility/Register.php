@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ IsportsUtility::setRegistrar(function (IsportsUtility $u): void {
     $u->prepare_params = [IsportsPrepareParams::class, 'call'];
     $u->prepare_path = [IsportsPreparePath::class, 'call'];
     $u->prepare_query = [IsportsPrepareQuery::class, 'call'];
+    $u->graphql_body = [IsportsGraphql::class, 'body'];
+    $u->graphql_errors = [IsportsGraphql::class, 'errors'];
     $u->result_basic = [IsportsResultBasic::class, 'call'];
     $u->result_body = [IsportsResultBody::class, 'call'];
     $u->result_headers = [IsportsResultHeaders::class, 'call'];

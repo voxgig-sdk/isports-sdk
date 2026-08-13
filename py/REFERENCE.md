@@ -88,9 +88,9 @@ football = client.Football()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `int` | No |  |
-| `data` | `dict` | No |  |
-| `message` | `str` | No |  |
+| `matches` | `list` | No |  |
+| `schedule` | `list` | No |  |
+| `stats` | `dict` | No |  |
 
 ### Operations
 

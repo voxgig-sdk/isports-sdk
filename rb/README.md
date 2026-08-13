@@ -36,7 +36,7 @@ client = IsportsSDK.new({
 
 ```ruby
 begin
-  # load returns the bare Football record (raises on error).
+  # load returns the ENTITY — call data_get for the Football record (raises on error).
   football = client.Football.load()
   puts football
 rescue => err
@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = IsportsSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 football = client.Football.load()
 puts football
 ```
@@ -238,9 +239,9 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `data` |  |
-| `message` |  |
+| `matches` |  |
+| `schedule` |  |
+| `stats` |  |
 
 Operations: Load.
 
@@ -265,14 +266,14 @@ Create an instance: `football = client.Football`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `Integer` |  |
-| `data` | `Hash` |  |
-| `message` | `String` |  |
+| `matches` | `Array` |  |
+| `schedule` | `Array` |  |
+| `stats` | `Hash` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Football record (raises on error).
+# load returns the ENTITY — call data_get for the Football record (raises on error).
 football = client.Football.load()
 ```
 

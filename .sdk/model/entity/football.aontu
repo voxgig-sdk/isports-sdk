@@ -6,19 +6,19 @@ main: kit: entity: football: {
 
   fields: [
     {
-      name: "code"
+      name: "matches"
       req: false
-      type: "`$INTEGER`"
+      type: "`$ARRAY`"
     }
     {
-      name: "data"
+      name: "schedule"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "stats"
       req: false
       type: "`$OBJECT`"
-    }
-    {
-      name: "message"
-      req: false
-      type: "`$STRING`"
     }
   ]
 
@@ -79,7 +79,7 @@ main: kit: entity: football: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
         {
@@ -126,7 +126,7 @@ main: kit: entity: football: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
         {
@@ -166,7 +166,7 @@ main: kit: entity: football: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

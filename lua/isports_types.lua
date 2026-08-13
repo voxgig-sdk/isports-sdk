@@ -7,14 +7,14 @@
 -- edit by hand.
 
 ---@class Football
----@field code? number
----@field data? table
----@field message? string
+---@field matches? table
+---@field schedule? table
+---@field stats? table
 
 ---@class FootballLoadMatch
----@field code? number
----@field data? table
----@field message? string
+---@field matches? table
+---@field schedule? table
+---@field stats? table
 
 local M = {}
 

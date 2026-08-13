@@ -99,9 +99,9 @@ fmt.Println(football.GetName()) // "football"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `int` | No |  |
-| `data` | `map[string]any` | No |  |
-| `message` | `string` | No |  |
+| `matches` | `[]any` | No |  |
+| `schedule` | `[]any` | No |  |
+| `stats` | `map[string]any` | No |  |
 
 ### Operations
 
