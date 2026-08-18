@@ -28,7 +28,7 @@ class IsportsSDK
     utility = IsportsUtility.new
     @_utility = utility
 
-    config = IsportsConfig.make_config
+    config = IsportsConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

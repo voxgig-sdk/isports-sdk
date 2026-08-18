@@ -1,6 +1,20 @@
 # Isports SDK configuration
 
 module IsportsConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -29,25 +43,16 @@ module IsportsConfig
         "football" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "matches",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "schedule",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "stats",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 2,
             },
           ],
           "name" => "football",
@@ -57,11 +62,9 @@ module IsportsConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "example" => "ycOrrj2NLYdzuOBr",
                         "kind" => "query",
                         "name" => "api_key",
@@ -70,27 +73,21 @@ module IsportsConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "league_id",
                         "orig" => "league_id",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "season",
                         "orig" => "season",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "team_id",
                         "orig" => "team_id",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -116,14 +113,11 @@ module IsportsConfig
                     "req" => "`reqdata`",
                     "res" => "`body.data`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "example" => "ycOrrj2NLYdzuOBr",
                         "kind" => "query",
                         "name" => "api_key",
@@ -132,19 +126,15 @@ module IsportsConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "league_id",
                         "orig" => "league_id",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "match_id",
                         "orig" => "match_id",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -169,14 +159,11 @@ module IsportsConfig
                     "req" => "`reqdata`",
                     "res" => "`body.data`",
                   },
-                  "index$" => 1,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "example" => "ycOrrj2NLYdzuOBr",
                         "kind" => "query",
                         "name" => "api_key",
@@ -185,7 +172,6 @@ module IsportsConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => 1639,
                         "kind" => "query",
                         "name" => "league_id",
@@ -214,10 +200,8 @@ module IsportsConfig
                     "req" => "`reqdata`",
                     "res" => "`body.data`",
                   },
-                  "index$" => 2,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {

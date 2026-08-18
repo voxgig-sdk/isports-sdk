@@ -40,7 +40,7 @@ class IsportsSDK
         $utility = new IsportsUtility();
         $this->_utility = $utility;
 
-        $config = IsportsConfig::make_config();
+        $config = IsportsConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
