@@ -33,6 +33,9 @@ class IsportsConfig
         return [
             "main" => [
                 "name" => "Isports",
+                "slug" => "isports",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
