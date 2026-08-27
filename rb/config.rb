@@ -28,6 +28,7 @@ module IsportsConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
