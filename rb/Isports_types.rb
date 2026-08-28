@@ -27,18 +27,14 @@ Football = Struct.new(
 
 # Request payload for Football#load.
 #
-# @!attribute [rw] matches
-#   @return [Array, nil]
+# @!attribute [rw] api_key
+#   @return [String]
 #
-# @!attribute [rw] schedule
-#   @return [Array, nil]
-#
-# @!attribute [rw] stats
-#   @return [Hash, nil]
+# @!attribute [rw] league_id
+#   @return [Integer]
 FootballLoadMatch = Struct.new(
-  :matches,
-  :schedule,
-  :stats,
+  :api_key,
+  :league_id,
   keyword_init: true
 )
 

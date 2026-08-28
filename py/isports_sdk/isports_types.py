@@ -22,7 +22,6 @@ class Football(TypedDict, total=False):
     stats: dict
 
 
-class FootballLoadMatch(TypedDict, total=False):
-    matches: list
-    schedule: list
-    stats: dict
+class FootballLoadMatch(TypedDict):
+    api_key: str
+    league_id: int

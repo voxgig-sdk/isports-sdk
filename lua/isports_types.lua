@@ -12,9 +12,8 @@
 ---@field stats? table
 
 ---@class FootballLoadMatch
----@field matches? table
----@field schedule? table
----@field stats? table
+---@field api_key string
+---@field league_id number
 
 local M = {}
 

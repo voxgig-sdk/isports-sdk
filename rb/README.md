@@ -37,7 +37,7 @@ client = IsportsSDK.new({
 ```ruby
 begin
   # load returns the ENTITY — call data_get for the Football record (raises on error).
-  football = client.Football.load()
+  football = client.Football.load({ "api_key" => "example_api_key", "league_id" => 1 })
   puts football
 rescue => err
   warn "load failed: #{err}"
@@ -51,7 +51,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  football = client.Football.load()
+  football = client.Football.load({ "api_key" => "example", "league_id" => 1 })
 rescue => err
   warn "load failed: #{err}"
 end
@@ -121,7 +121,7 @@ client = IsportsSDK.test
 
 # Entity ops return the ENTITY (raises on error);
 # call data_get for the mock record.
-football = client.Football.load()
+football = client.Football.load({ "api_key" => "example", "league_id" => 1 })
 puts football
 ```
 
@@ -274,8 +274,31 @@ Create an instance: `football = client.Football`
 
 ```ruby
 # load returns the ENTITY — call data_get for the Football record (raises on error).
-football = client.Football.load()
+football = client.Football.load({ "api_key" => "api_key", "league_id" => 1 })
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -355,7 +378,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 football = client.Football
-football.load()
+football.load({ "api_key" => "example", "league_id" => 1 })
 
 # football.data_get now returns the football data from the last load
 # football.match_get returns the last match criteria

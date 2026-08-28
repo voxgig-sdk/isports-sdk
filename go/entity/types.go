@@ -21,9 +21,8 @@ type Football struct {
 
 // FootballLoadMatch is the typed request payload for Football.LoadTyped.
 type FootballLoadMatch struct {
-	Matches *[]any `json:"matches,omitempty"`
-	Schedule *[]any `json:"schedule,omitempty"`
-	Stats *map[string]any `json:"stats,omitempty"`
+	ApiKey string `json:"api_key"`
+	LeagueId int `json:"league_id"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

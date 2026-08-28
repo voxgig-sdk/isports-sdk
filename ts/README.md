@@ -41,7 +41,7 @@ const client = new IsportsSDK({
 
 ```ts
 try {
-  const football = await client.Football().load()
+  const football = await client.Football().load({ api_key: 'example_api_key', league_id: 1 })
   console.log(football)
 } catch (err) {
   console.error('load failed:', err)
@@ -55,7 +55,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const football = await client.Football().load()
+  const football = await client.Football().load({ api_key: "example", league_id: 1 })
   console.log(football)
 } catch (err) {
   console.error('load failed:', err)
@@ -122,7 +122,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = IsportsSDK.test()
 
-const football = await client.Football().load()
+const football = await client.Football().load({ api_key: 'example_api_key', league_id: 1 })
 // football is the entity, populated with mock response data
 // — call football.data() for the record itself
 console.log(football)
@@ -143,7 +143,7 @@ Entity instances remember their last match and data:
 const entity = client.Football()
 
 // First call runs the operation and stores its result
-await entity.load()
+await entity.load({ api_key: 'example_api_key', league_id: 1 })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
@@ -325,8 +325,31 @@ Create an instance: `const football = client.Football()`
 #### Example: Load
 
 ```ts
-const football = await client.Football().load()
+const football = await client.Football().load({ api_key: 'api_key', league_id: 1 })
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -399,7 +422,7 @@ calls on the same instance can rely on this state.
 
 ```ts
 const football = client.Football()
-await football.load()
+await football.load({ api_key: "example", league_id: 1 })
 
 // football.data() now returns the football data from the last `load`
 // football.match() returns the last match criteria

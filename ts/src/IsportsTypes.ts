@@ -12,9 +12,8 @@ export interface Football {
 }
 
 export interface FootballLoadMatch {
-  matches?: any[]
-  schedule?: any[]
-  stats?: Record<string, any>
+  api_key: string
+  league_id: number
 
   // Selects a custom action instead of the plain load:
   //   'livescore' | 'stat'

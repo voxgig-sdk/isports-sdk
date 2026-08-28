@@ -23,8 +23,7 @@ class Football
 /** Request payload for Football#load. */
 class FootballLoadMatch
 {
-    public ?array $matches = null;
-    public ?array $schedule = null;
-    public ?array $stats = null;
+    public string $api_key;
+    public int $league_id;
 }
 
