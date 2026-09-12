@@ -63,15 +63,18 @@ def _football_direct_setup(mockres):
     env = runner.env_override({
         "ISPORTS_TEST_FOOTBALL_ENTID": {},
         "ISPORTS_TEST_LIVE": "FALSE",
-        "ISPORTS_APIKEY": "NONE",
+        "ISPORTS_APIKEY": "",
     })
 
     live = env.get("ISPORTS_TEST_LIVE") == "TRUE"
 
     if live:
-        merged_opts = {
+        # sdk-test-control.json's test.client.options seeds the live
+        # client; the generated fields below overwrite anything they name.
+        merged_opts = dict(runner.live_client_options())
+        merged_opts.update({
             "apikey": env.get("ISPORTS_APIKEY"),
-        }
+        })
         client = IsportsSDK(merged_opts)
         return {
             "client": client,

@@ -87,10 +87,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/sport/football/stats",
-                ["parts"] = {
-                  "sport",
-                  "football",
-                  "stats",
+                ["segments"] = {
+                  {
+                    ["lit"] = "sport",
+                  },
+                  {
+                    ["lit"] = "football",
+                  },
+                  {
+                    ["lit"] = "stats",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "stat",
@@ -104,6 +110,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.data`",
+                },
+                ["parts"] = {
+                  "sport",
+                  "football",
+                  "stats",
                 },
               },
               {
@@ -134,10 +145,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/sport/football/livescores",
-                ["parts"] = {
-                  "sport",
-                  "football",
-                  "livescores",
+                ["segments"] = {
+                  {
+                    ["lit"] = "sport",
+                  },
+                  {
+                    ["lit"] = "football",
+                  },
+                  {
+                    ["lit"] = "livescores",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "livescore",
@@ -150,6 +167,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.data`",
+                },
+                ["parts"] = {
+                  "sport",
+                  "football",
+                  "livescores",
                 },
               },
               {
@@ -176,11 +198,19 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/sport/football/schedule/basic",
-                ["parts"] = {
-                  "sport",
-                  "football",
-                  "schedule",
-                  "basic",
+                ["segments"] = {
+                  {
+                    ["lit"] = "sport",
+                  },
+                  {
+                    ["lit"] = "football",
+                  },
+                  {
+                    ["lit"] = "schedule",
+                  },
+                  {
+                    ["lit"] = "basic",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -191,6 +221,12 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.data`",
+                },
+                ["parts"] = {
+                  "sport",
+                  "football",
+                  "schedule",
+                  "basic",
                 },
               },
             },

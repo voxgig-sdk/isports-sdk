@@ -106,14 +106,22 @@ func footballDirectSetup(mockres any) *footballDirectSetupResult {
 	env := envOverride(map[string]any{
 		"ISPORTS_TEST_FOOTBALL_ENTID": map[string]any{},
 		"ISPORTS_TEST_LIVE":    "FALSE",
-		"ISPORTS_APIKEY":       "NONE",
+		"ISPORTS_APIKEY":       "",
 	})
 
 	live := env["ISPORTS_TEST_LIVE"] == "TRUE"
 
 	if live {
-		mergedOpts := map[string]any{
+		// sdk-test-control.json's test.client.options seeds the live
+		// client; the generated fields below overwrite anything they name.
+		mergedOpts := map[string]any{}
+		for k, v := range liveClientOptions() {
+			mergedOpts[k] = v
+		}
+		for k, v := range map[string]any{
 			"apikey": env["ISPORTS_APIKEY"],
+		} {
+			mergedOpts[k] = v
 		}
 		client := sdk.NewIsportsSDK(mergedOpts)
 

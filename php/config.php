@@ -113,10 +113,16 @@ class IsportsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/sport/football/stats',
-                  'parts' => [
-                    'sport',
-                    'football',
-                    'stats',
+                  'segments' => [
+                    [
+                      'lit' => 'sport',
+                    ],
+                    [
+                      'lit' => 'football',
+                    ],
+                    [
+                      'lit' => 'stats',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'stat',
@@ -130,6 +136,11 @@ class IsportsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.data`',
+                  ],
+                  'parts' => [
+                    'sport',
+                    'football',
+                    'stats',
                   ],
                 ],
                 [
@@ -160,10 +171,16 @@ class IsportsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/sport/football/livescores',
-                  'parts' => [
-                    'sport',
-                    'football',
-                    'livescores',
+                  'segments' => [
+                    [
+                      'lit' => 'sport',
+                    ],
+                    [
+                      'lit' => 'football',
+                    ],
+                    [
+                      'lit' => 'livescores',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'livescore',
@@ -176,6 +193,11 @@ class IsportsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.data`',
+                  ],
+                  'parts' => [
+                    'sport',
+                    'football',
+                    'livescores',
                   ],
                 ],
                 [
@@ -202,11 +224,19 @@ class IsportsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/sport/football/schedule/basic',
-                  'parts' => [
-                    'sport',
-                    'football',
-                    'schedule',
-                    'basic',
+                  'segments' => [
+                    [
+                      'lit' => 'sport',
+                    ],
+                    [
+                      'lit' => 'football',
+                    ],
+                    [
+                      'lit' => 'schedule',
+                    ],
+                    [
+                      'lit' => 'basic',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -217,6 +247,12 @@ class IsportsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.data`',
+                  ],
+                  'parts' => [
+                    'sport',
+                    'football',
+                    'schedule',
+                    'basic',
                   ],
                 ],
               ],

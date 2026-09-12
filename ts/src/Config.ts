@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -123,10 +134,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/sport/football/stats",
-              "parts": [
-                "sport",
-                "football",
-                "stats"
+              "segments": [
+                {
+                  "lit": "sport"
+                },
+                {
+                  "lit": "football"
+                },
+                {
+                  "lit": "stats"
+                }
               ],
               "select": {
                 "$action": "stat",
@@ -140,7 +157,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.data`"
-              }
+              },
+              "parts": [
+                "sport",
+                "football",
+                "stats"
+              ]
             },
             {
               "args": {
@@ -170,10 +192,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/sport/football/livescores",
-              "parts": [
-                "sport",
-                "football",
-                "livescores"
+              "segments": [
+                {
+                  "lit": "sport"
+                },
+                {
+                  "lit": "football"
+                },
+                {
+                  "lit": "livescores"
+                }
               ],
               "select": {
                 "$action": "livescore",
@@ -186,7 +214,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.data`"
-              }
+              },
+              "parts": [
+                "sport",
+                "football",
+                "livescores"
+              ]
             },
             {
               "args": {
@@ -212,11 +245,19 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/sport/football/schedule/basic",
-              "parts": [
-                "sport",
-                "football",
-                "schedule",
-                "basic"
+              "segments": [
+                {
+                  "lit": "sport"
+                },
+                {
+                  "lit": "football"
+                },
+                {
+                  "lit": "schedule"
+                },
+                {
+                  "lit": "basic"
+                }
               ],
               "select": {
                 "exist": [
@@ -227,7 +268,13 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.data`"
-              }
+              },
+              "parts": [
+                "sport",
+                "football",
+                "schedule",
+                "basic"
+              ]
             }
           ]
         }
@@ -243,6 +290,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

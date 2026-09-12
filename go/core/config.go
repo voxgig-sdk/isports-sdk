@@ -91,10 +91,16 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/sport/football/stats",
-								"parts": []any{
-									"sport",
-									"football",
-									"stats",
+								"segments": []any{
+									map[string]any{
+										"lit": "sport",
+									},
+									map[string]any{
+										"lit": "football",
+									},
+									map[string]any{
+										"lit": "stats",
+									},
 								},
 								"select": map[string]any{
 									"$action": "stat",
@@ -108,6 +114,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.data`",
+								},
+								"parts": []any{
+									"sport",
+									"football",
+									"stats",
 								},
 							},
 							map[string]any{
@@ -138,10 +149,16 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/sport/football/livescores",
-								"parts": []any{
-									"sport",
-									"football",
-									"livescores",
+								"segments": []any{
+									map[string]any{
+										"lit": "sport",
+									},
+									map[string]any{
+										"lit": "football",
+									},
+									map[string]any{
+										"lit": "livescores",
+									},
 								},
 								"select": map[string]any{
 									"$action": "livescore",
@@ -154,6 +171,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.data`",
+								},
+								"parts": []any{
+									"sport",
+									"football",
+									"livescores",
 								},
 							},
 							map[string]any{
@@ -180,11 +202,19 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/sport/football/schedule/basic",
-								"parts": []any{
-									"sport",
-									"football",
-									"schedule",
-									"basic",
+								"segments": []any{
+									map[string]any{
+										"lit": "sport",
+									},
+									map[string]any{
+										"lit": "football",
+									},
+									map[string]any{
+										"lit": "schedule",
+									},
+									map[string]any{
+										"lit": "basic",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -196,6 +226,12 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.data`",
 								},
+								"parts": []any{
+									"sport",
+									"football",
+									"schedule",
+									"basic",
+								},
 							},
 						},
 					},
@@ -206,6 +242,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

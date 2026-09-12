@@ -81,7 +81,7 @@ def football_basic_setup(extra)
     "ISPORTS_TEST_FOOTBALL_ENTID" => idmap,
     "ISPORTS_TEST_LIVE" => "FALSE",
     "ISPORTS_TEST_EXPLAIN" => "FALSE",
-    "ISPORTS_APIKEY" => "NONE",
+    "ISPORTS_APIKEY" => "",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -92,6 +92,9 @@ def football_basic_setup(extra)
 
   if env["ISPORTS_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
+      # FIRST, so the generated fields below win: sdk-test-control.json's
+      # test.client.options adds to the live client, it does not redirect it.
+      Runner.live_client_options,
       {
         "apikey" => env["ISPORTS_APIKEY"],
       },

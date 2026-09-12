@@ -1,6 +1,14 @@
 # Isports SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -108,10 +116,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/sport/football/stats",
-                "parts": [
-                  "sport",
-                  "football",
-                  "stats",
+                "segments": [
+                  {
+                    "lit": "sport",
+                  },
+                  {
+                    "lit": "football",
+                  },
+                  {
+                    "lit": "stats",
+                  },
                 ],
                 "select": {
                   "$action": "stat",
@@ -126,6 +140,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.data`",
                 },
+                "parts": [
+                  "sport",
+                  "football",
+                  "stats",
+                ],
               },
               {
                 "args": {
@@ -155,10 +174,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/sport/football/livescores",
-                "parts": [
-                  "sport",
-                  "football",
-                  "livescores",
+                "segments": [
+                  {
+                    "lit": "sport",
+                  },
+                  {
+                    "lit": "football",
+                  },
+                  {
+                    "lit": "livescores",
+                  },
                 ],
                 "select": {
                   "$action": "livescore",
@@ -172,6 +197,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.data`",
                 },
+                "parts": [
+                  "sport",
+                  "football",
+                  "livescores",
+                ],
               },
               {
                 "args": {
@@ -197,11 +227,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/sport/football/schedule/basic",
-                "parts": [
-                  "sport",
-                  "football",
-                  "schedule",
-                  "basic",
+                "segments": [
+                  {
+                    "lit": "sport",
+                  },
+                  {
+                    "lit": "football",
+                  },
+                  {
+                    "lit": "schedule",
+                  },
+                  {
+                    "lit": "basic",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -213,6 +251,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.data`",
                 },
+                "parts": [
+                  "sport",
+                  "football",
+                  "schedule",
+                  "basic",
+                ],
               },
             ],
           },
