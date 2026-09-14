@@ -105,7 +105,7 @@ local result, err = client:Football():load({ api_key = "example", league_id = 1 
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/isports` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/releases) |
+| TypeScript | `@voxgig-sdk/isports-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/releases) |
 | Python | `voxgig-sdk-isports` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/releases) |
 | PHP | `voxgig-sdk/isports` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/isports-sdk/go` | `go get github.com/voxgig-sdk/isports-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Football():load({ api_key = "example", league_id = 1 
 ### TypeScript
 
 ```ts
-import { IsportsSDK } from '@voxgig-sdk/isports'
+import { IsportsSDK } from '@voxgig-sdk/isports-sdk'
 
 const client = new IsportsSDK({
   apikey: process.env.ISPORTS_APIKEY,

@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { IsportsSDK } from '@voxgig-sdk/isports'
+import { IsportsSDK } from '@voxgig-sdk/isports-sdk'
 
 const client = new IsportsSDK({
   apikey: process.env.ISPORTS_APIKEY,
@@ -411,7 +411,7 @@ isports/
 Import the SDK from the package root:
 
 ```ts
-import { IsportsSDK } from '@voxgig-sdk/isports'
+import { IsportsSDK } from '@voxgig-sdk/isports-sdk'
 ```
 
 ### Entity state
