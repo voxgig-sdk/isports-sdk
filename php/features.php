@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Isports SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class IsportsFeatures
@@ -14,8 +17,14 @@ class IsportsFeatures
         switch ($name) {
             case "base":
                 return new IsportsBaseFeature();
+            case "ratelimit":
+                return new IsportsRatelimitFeature();
+            case "retry":
+                return new IsportsRetryFeature();
             case "test":
                 return new IsportsTestFeature();
+            case "timeout":
+                return new IsportsTimeoutFeature();
             default:
                 return new IsportsBaseFeature();
         }
@@ -31,7 +40,10 @@ class IsportsFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

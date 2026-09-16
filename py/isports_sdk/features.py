@@ -1,12 +1,18 @@
 # Isports SDK feature factory
 
 from isports_sdk.feature.base_feature import IsportsBaseFeature
+from isports_sdk.feature.ratelimit_feature import IsportsRatelimitFeature
+from isports_sdk.feature.retry_feature import IsportsRetryFeature
 from isports_sdk.feature.test_feature import IsportsTestFeature
+from isports_sdk.feature.timeout_feature import IsportsTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: IsportsBaseFeature(),
+    "ratelimit": lambda: IsportsRatelimitFeature(),
+    "retry": lambda: IsportsRetryFeature(),
     "test": lambda: IsportsTestFeature(),
+    "timeout": lambda: IsportsTimeoutFeature(),
 }
 
 
