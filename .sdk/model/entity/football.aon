@@ -6,19 +6,9 @@ main: kit: entity: football: {
 
   fields: [
     {
-      name: "matches"
-      req: false
-      type: "`$ARRAY`"
-    }
-    {
       name: "schedule"
       req: false
       type: "`$ARRAY`"
-    }
-    {
-      name: "stats"
-      req: false
-      type: "`$OBJECT`"
     }
   ]
 

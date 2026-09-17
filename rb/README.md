@@ -239,9 +239,7 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `matches` |  |
 | `schedule` |  |
-| `stats` |  |
 
 Operations: Load.
 
@@ -266,9 +264,7 @@ Create an instance: `football = client.Football`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `matches` | `Array` |  |
 | `schedule` | `Array` |  |
-| `stats` | `Hash` |  |
 
 #### Example: Load
 
@@ -420,6 +416,7 @@ Use `Helpers.to_map()` to safely validate that a value is a hash.
 rb/
 ├── Isports_sdk.rb       -- Main SDK module
 ├── config.rb                  -- Configuration
+├── schema.rb                  -- Generated option + entity specs
 ├── features.rb                -- Feature factory
 ├── core/                      -- Core types and context
 ├── entity/                    -- Entity implementations

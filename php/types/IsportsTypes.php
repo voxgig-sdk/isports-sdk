@@ -15,9 +15,7 @@ declare(strict_types=1);
 /** Football entity data model. */
 class Football
 {
-    public ?array $matches = null;
     public ?array $schedule = null;
-    public ?array $stats = null;
 }
 
 /** Request payload for Football#load. */

@@ -123,6 +123,8 @@ class Config {
 
     auth: {
       prefix: '',
+      in: 'query',
+      name: 'api_key',
     },
 
     headers: {
@@ -131,9 +133,9 @@ class Config {
 
     entity: {
       
-      football: {
-      },
-
+        football: {
+        },
+  
     }
   }
 
@@ -142,16 +144,8 @@ class Config {
     "football": {
       "fields": [
         {
-          "name": "matches",
-          "type": "`$ARRAY`"
-        },
-        {
           "name": "schedule",
           "type": "`$ARRAY`"
-        },
-        {
-          "name": "stats",
-          "type": "`$OBJECT`"
         }
       ],
       "name": "football",

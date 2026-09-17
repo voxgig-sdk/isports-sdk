@@ -105,12 +105,12 @@ local result, err = client:Football():load({ api_key = "example", league_id = 1 
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/isports-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/releases) |
-| Python | `voxgig-sdk-isports` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/releases) |
-| PHP | `voxgig-sdk/isports` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/releases) |
+| TypeScript | `@voxgig-sdk/isports-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/tags) |
+| Python | `voxgig-sdk-isports` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/tags) |
+| PHP | `voxgig-sdk/isports` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/isports-sdk/go` | `go get github.com/voxgig-sdk/isports-sdk/go@latest` |
-| Ruby | `voxgig-sdk-isports` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/releases) |
-| Lua | `voxgig-sdk-isports` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/releases) |
+| Ruby | `voxgig-sdk-isports` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/tags) |
+| Lua | `voxgig-sdk-isports` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/isports-sdk/go-cli` | `go install github.com/voxgig-sdk/isports-sdk/go-cli/cmd/isports@latest` |
 | Go MCP server | `github.com/voxgig-sdk/isports-sdk/go-mcp` | `go get github.com/voxgig-sdk/isports-sdk/go-mcp@latest` |
 

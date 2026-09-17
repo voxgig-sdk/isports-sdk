@@ -10,18 +10,10 @@
 
 # Football entity data model.
 #
-# @!attribute [rw] matches
-#   @return [Array, nil]
-#
 # @!attribute [rw] schedule
 #   @return [Array, nil]
-#
-# @!attribute [rw] stats
-#   @return [Hash, nil]
 Football = Struct.new(
-  :matches,
   :schedule,
-  :stats,
   keyword_init: true
 )
 

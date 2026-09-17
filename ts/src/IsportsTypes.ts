@@ -6,9 +6,7 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Football {
-  matches?: any[]
   schedule?: any[]
-  stats?: Record<string, any>
 }
 
 export interface FootballLoadMatch {

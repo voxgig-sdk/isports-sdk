@@ -7,9 +7,7 @@
 -- edit by hand.
 
 ---@class Football
----@field matches? table
 ---@field schedule? table
----@field stats? table
 
 ---@class FootballLoadMatch
 ---@field api_key string

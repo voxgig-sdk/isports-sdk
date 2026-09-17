@@ -104,6 +104,8 @@ class Config {
         base: "http://api.isportsapi.com",
         auth: {
             prefix: '',
+            in: 'query',
+            name: 'api_key',
         },
         headers: {
             "content-type": "application/json"
@@ -116,16 +118,8 @@ class Config {
         "football": {
             "fields": [
                 {
-                    "name": "matches",
-                    "type": "`$ARRAY`"
-                },
-                {
                     "name": "schedule",
                     "type": "`$ARRAY`"
-                },
-                {
-                    "name": "stats",
-                    "type": "`$OBJECT`"
                 }
             ],
             "name": "football",

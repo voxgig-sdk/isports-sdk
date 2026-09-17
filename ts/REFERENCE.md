@@ -117,9 +117,7 @@ const football = client.Football()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `matches` | `any[]` | No |  |
 | `schedule` | `any[]` | No |  |
-| `stats` | `Record<string, any>` | No |  |
 
 ### Actions
 

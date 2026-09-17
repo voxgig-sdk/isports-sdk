@@ -296,9 +296,7 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `matches` |  |
 | `schedule` |  |
-| `stats` |  |
 
 Operations: load.
 
@@ -323,9 +321,7 @@ Create an instance: `const football = client.Football()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `matches` | `any[]` |  |
 | `schedule` | `any[]` |  |
-| `stats` | `Record<string, any>` |  |
 
 #### Example: Load
 

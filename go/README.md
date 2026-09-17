@@ -263,9 +263,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"matches"` |  |
 | `"schedule"` |  |
-| `"stats"` |  |
 
 Operations: Load.
 
@@ -290,9 +288,7 @@ Create an instance: `football := client.Football(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `matches` | `[]any` |  |
 | `schedule` | `[]any` |  |
-| `stats` | `map[string]any` |  |
 
 #### Example: Load
 

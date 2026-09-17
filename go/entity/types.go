@@ -14,9 +14,7 @@ import (
 
 // Football is the typed data model for the football entity.
 type Football struct {
-	Matches *[]any `json:"matches,omitempty"`
 	Schedule *[]any `json:"schedule,omitempty"`
-	Stats *map[string]any `json:"stats,omitempty"`
 }
 
 // FootballLoadMatch is the typed request payload for Football.LoadTyped.

@@ -2,21 +2,15 @@
   "existing": {
     "football": {
       "FOOTBALL00": {
-        "matches": [],
         "schedule": [],
-        "stats": {},
         "id": "FOOTBALL00"
       },
       "FOOTBALL01": {
-        "matches": [],
         "schedule": [],
-        "stats": {},
         "id": "FOOTBALL01"
       },
       "FOOTBALL02": {
-        "matches": [],
         "schedule": [],
-        "stats": {},
         "id": "FOOTBALL02"
       }
     }
@@ -24,9 +18,7 @@
   "new": {
     "football": {
       "football_ref01": {
-        "matches": [],
-        "schedule": [],
-        "stats": {}
+        "schedule": []
       }
     }
   },

@@ -1,7 +1,5 @@
 export interface Football {
-    matches?: any[];
     schedule?: any[];
-    stats?: Record<string, any>;
 }
 export interface FootballLoadMatch {
     api_key: string;

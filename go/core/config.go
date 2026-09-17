@@ -81,6 +81,8 @@ func MakeConfig() map[string]any {
 			"base": "http://api.isportsapi.com",
 			"auth": map[string]any{
 				"prefix": "",
+				"in": "query",
+				"name": "api_key",
 			},
 			"headers": map[string]any{
 				"content-type": "application/json",
@@ -93,16 +95,8 @@ func MakeConfig() map[string]any {
 			"football": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"name": "matches",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
 						"name": "schedule",
 						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"name": "stats",
-						"type": "`$OBJECT`",
 					},
 				},
 				"name": "football",

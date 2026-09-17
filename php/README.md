@@ -249,9 +249,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `matches` |  |
 | `schedule` |  |
-| `stats` |  |
 
 Operations: Load.
 
@@ -276,9 +274,7 @@ Create an instance: `$football = $client->Football();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `matches` | `array` |  |
 | `schedule` | `array` |  |
-| `stats` | `array` |  |
 
 #### Example: Load
 
@@ -430,6 +426,7 @@ Use `Helpers::to_map()` to safely validate that a value is an array.
 php/
 ├── isports_sdk.php          -- Main SDK class
 ├── config.php                     -- Configuration
+├── schema.php                     -- Generated option + entity specs
 ├── features.php                   -- Feature factory
 ├── core/                          -- Core types and context
 ├── entity/                        -- Entity implementations

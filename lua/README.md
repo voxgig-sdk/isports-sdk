@@ -229,9 +229,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `matches` |  |
 | `schedule` |  |
-| `stats` |  |
 
 Operations: Load.
 
@@ -256,9 +254,7 @@ Create an instance: `local football = client:Football(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `matches` | `table` |  |
 | `schedule` | `table` |  |
-| `stats` | `table` |  |
 
 #### Example: Load
 
@@ -409,6 +405,7 @@ Use `helpers.to_map()` to safely validate that a value is a table.
 lua/
 ├── isports_sdk.lua    -- Main SDK module
 ├── config.lua               -- Configuration
+├── schema.lua               -- Generated option + entity specs
 ├── features.lua             -- Feature factory
 ├── core/                    -- Core types and context
 ├── entity/                  -- Entity implementations

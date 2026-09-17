@@ -77,6 +77,8 @@ local function make_config()
       base = "http://api.isportsapi.com",
       auth = {
         prefix = "",
+        ["in"] = "query",
+        name = "api_key",
       },
       headers = {
         ["content-type"] = "application/json",
@@ -89,16 +91,8 @@ local function make_config()
       ["football"] = {
         ["fields"] = {
           {
-            ["name"] = "matches",
-            ["type"] = "`$ARRAY`",
-          },
-          {
             ["name"] = "schedule",
             ["type"] = "`$ARRAY`",
-          },
-          {
-            ["name"] = "stats",
-            ["type"] = "`$OBJECT`",
           },
         },
         ["name"] = "football",

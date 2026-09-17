@@ -17,9 +17,7 @@ from typing import TypedDict, Any
 
 
 class Football(TypedDict, total=False):
-    matches: list
     schedule: list
-    stats: dict
 
 
 class FootballLoadMatch(TypedDict):

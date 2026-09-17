@@ -91,9 +91,7 @@ local football = client:Football(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `matches` | `table` | No |  |
 | `schedule` | `table` | No |  |
-| `stats` | `table` | No |  |
 
 ### Operations
 
