@@ -1,0 +1,204 @@
+# Entity: football
+
+main: kit: entity: football: {
+
+  alias: field: {}
+
+  fields: {
+    schedule: {
+      h: "Schedule"
+      n: "schedule"
+      r: false
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "football"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /sport/football/stats"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "ycOrrj2NLYdzuOBr"
+                k: "query"
+                n: "api_key"
+                or: "api_key"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "league_id"
+                or: "league_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "season"
+                or: "season"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "team_id"
+                or: "team_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/sport/football/stats"
+          q: {
+            "$action": "stat"
+            exist: [
+              "api_key"
+              "league_id"
+              "season"
+              "team_id"
+            ]
+          }
+          s: [
+            {
+              lit: "sport"
+            }
+            {
+              lit: "football"
+            }
+            {
+              lit: "stats"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /sport/football/livescores"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "ycOrrj2NLYdzuOBr"
+                k: "query"
+                n: "api_key"
+                or: "api_key"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "league_id"
+                or: "league_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "match_id"
+                or: "match_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/sport/football/livescores"
+          q: {
+            "$action": "livescore"
+            exist: [
+              "api_key"
+              "league_id"
+              "match_id"
+            ]
+          }
+          s: [
+            {
+              lit: "sport"
+            }
+            {
+              lit: "football"
+            }
+            {
+              lit: "livescores"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /sport/football/schedule/basic"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "ycOrrj2NLYdzuOBr"
+                k: "query"
+                n: "api_key"
+                or: "api_key"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: 1639
+                k: "query"
+                n: "league_id"
+                or: "league_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/sport/football/schedule/basic"
+          q: {
+            exist: [
+              "api_key"
+              "league_id"
+            ]
+          }
+          s: [
+            {
+              lit: "sport"
+            }
+            {
+              lit: "football"
+            }
+            {
+              lit: "schedule"
+            }
+            {
+              lit: "basic"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

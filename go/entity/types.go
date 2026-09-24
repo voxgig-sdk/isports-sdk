@@ -1,7 +1,7 @@
 // Typed models for the Isports SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,7 +14,6 @@ import (
 
 // Football is the typed data model for the football entity.
 type Football struct {
-	Schedule *[]any `json:"schedule,omitempty"`
 }
 
 // FootballLoadMatch is the typed request payload for Football.LoadTyped.

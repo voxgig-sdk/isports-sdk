@@ -121,6 +121,7 @@ def make_config():
         "fields": [
           {
             "name": "schedule",
+            "title": "Schedule",
             "type": "`$ARRAY`",
           },
         ],
@@ -131,36 +132,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": "ycOrrj2NLYdzuOBr",
-                      "kind": "query",
-                      "name": "api_key",
-                      "orig": "api_key",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "kind": "query",
-                      "name": "league_id",
-                      "orig": "league_id",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "kind": "query",
-                      "name": "season",
-                      "orig": "season",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "kind": "query",
-                      "name": "team_id",
-                      "orig": "team_id",
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/sport/football/stats",
@@ -175,6 +146,46 @@ def make_config():
                     "lit": "stats",
                   },
                 ],
+                "parts": [
+                  "sport",
+                  "football",
+                  "stats",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "api_key",
+                      "orig": "api_key",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "reqd": True,
+                      "example": "ycOrrj2NLYdzuOBr",
+                    },
+                    {
+                      "name": "league_id",
+                      "orig": "league_id",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "season",
+                      "orig": "season",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "team_id",
+                      "orig": "team_id",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                    },
+                  ],
+                },
                 "select": {
                   "$action": "stat",
                   "exist": [
@@ -184,41 +195,8 @@ def make_config():
                     "team_id",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.data`",
-                },
-                "parts": [
-                  "sport",
-                  "football",
-                  "stats",
-                ],
               },
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": "ycOrrj2NLYdzuOBr",
-                      "kind": "query",
-                      "name": "api_key",
-                      "orig": "api_key",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "kind": "query",
-                      "name": "league_id",
-                      "orig": "league_id",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "kind": "query",
-                      "name": "match_id",
-                      "orig": "match_id",
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/sport/football/livescores",
@@ -233,6 +211,40 @@ def make_config():
                     "lit": "livescores",
                   },
                 ],
+                "parts": [
+                  "sport",
+                  "football",
+                  "livescores",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "api_key",
+                      "orig": "api_key",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "reqd": True,
+                      "example": "ycOrrj2NLYdzuOBr",
+                    },
+                    {
+                      "name": "league_id",
+                      "orig": "league_id",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "match_id",
+                      "orig": "match_id",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                    },
+                  ],
+                },
                 "select": {
                   "$action": "livescore",
                   "exist": [
@@ -241,37 +253,8 @@ def make_config():
                     "match_id",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.data`",
-                },
-                "parts": [
-                  "sport",
-                  "football",
-                  "livescores",
-                ],
               },
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": "ycOrrj2NLYdzuOBr",
-                      "kind": "query",
-                      "name": "api_key",
-                      "orig": "api_key",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": 1639,
-                      "kind": "query",
-                      "name": "league_id",
-                      "orig": "league_id",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/sport/football/schedule/basic",
@@ -289,22 +272,43 @@ def make_config():
                     "lit": "basic",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "api_key",
-                    "league_id",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.data`",
-                },
                 "parts": [
                   "sport",
                   "football",
                   "schedule",
                   "basic",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "api_key",
+                      "orig": "api_key",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "reqd": True,
+                      "example": "ycOrrj2NLYdzuOBr",
+                    },
+                    {
+                      "name": "league_id",
+                      "orig": "league_id",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "reqd": True,
+                      "example": 1639,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "api_key",
+                    "league_id",
+                  ],
+                },
               },
             ],
           },

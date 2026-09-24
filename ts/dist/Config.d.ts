@@ -81,6 +81,7 @@ declare class Config {
         football: {
             fields: {
                 name: string;
+                title: string;
                 type: string;
             }[];
             name: string;
@@ -89,71 +90,73 @@ declare class Config {
                     input: string;
                     name: string;
                     points: ({
-                        args: {
-                            query: ({
-                                example: string;
-                                kind: string;
-                                name: string;
-                                orig: string;
-                                reqd: boolean;
-                                type: string;
-                            } | {
-                                kind: string;
-                                name: string;
-                                orig: string;
-                                type: string;
-                                example?: undefined;
-                                reqd?: undefined;
-                            })[];
-                        };
                         kind: string;
                         method: string;
                         orig: string;
                         segments: {
                             lit: string;
                         }[];
+                        parts: string[];
+                        rename: {};
+                        transform: {
+                            req: string;
+                            res: string;
+                        };
+                        args: {
+                            query: ({
+                                name: string;
+                                orig: string;
+                                type: string;
+                                kind: string;
+                                reqd: boolean;
+                                example: string;
+                            } | {
+                                name: string;
+                                orig: string;
+                                type: string;
+                                kind: string;
+                                reqd?: undefined;
+                                example?: undefined;
+                            })[];
+                        };
                         select: {
                             $action: string;
                             exist: string[];
                         };
-                        transform: {
-                            req: string;
-                            res: string;
-                        };
-                        parts: string[];
                     } | {
-                        args: {
-                            query: ({
-                                example: string;
-                                kind: string;
-                                name: string;
-                                orig: string;
-                                reqd: boolean;
-                                type: string;
-                            } | {
-                                example: number;
-                                kind: string;
-                                name: string;
-                                orig: string;
-                                reqd: boolean;
-                                type: string;
-                            })[];
-                        };
                         kind: string;
                         method: string;
                         orig: string;
                         segments: {
                             lit: string;
                         }[];
-                        select: {
-                            exist: string[];
-                            $action?: undefined;
-                        };
+                        parts: string[];
+                        rename: {};
                         transform: {
                             req: string;
                             res: string;
                         };
-                        parts: string[];
+                        args: {
+                            query: ({
+                                name: string;
+                                orig: string;
+                                type: string;
+                                kind: string;
+                                reqd: boolean;
+                                example: string;
+                            } | {
+                                name: string;
+                                orig: string;
+                                type: string;
+                                kind: string;
+                                reqd: boolean;
+                                example: number;
+                            })[];
+                        };
+                        select: {
+                            exist: string[];
+                            $action?: undefined;
+                        };
                     })[];
                 };
             };

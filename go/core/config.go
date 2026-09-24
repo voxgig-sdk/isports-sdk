@@ -96,6 +96,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "schedule",
+						"title": "Schedule",
 						"type": "`$ARRAY`",
 					},
 				},
@@ -106,36 +107,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": "ycOrrj2NLYdzuOBr",
-											"kind": "query",
-											"name": "api_key",
-											"orig": "api_key",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "league_id",
-											"orig": "league_id",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "season",
-											"orig": "season",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "team_id",
-											"orig": "team_id",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/sport/football/stats",
@@ -150,6 +121,46 @@ func MakeConfig() map[string]any {
 										"lit": "stats",
 									},
 								},
+								"parts": []any{
+									"sport",
+									"football",
+									"stats",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.data`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "api_key",
+											"orig": "api_key",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+											"example": "ycOrrj2NLYdzuOBr",
+										},
+										map[string]any{
+											"name": "league_id",
+											"orig": "league_id",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "season",
+											"orig": "season",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "team_id",
+											"orig": "team_id",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+									},
+								},
 								"select": map[string]any{
 									"$action": "stat",
 									"exist": []any{
@@ -159,41 +170,8 @@ func MakeConfig() map[string]any {
 										"team_id",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.data`",
-								},
-								"parts": []any{
-									"sport",
-									"football",
-									"stats",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": "ycOrrj2NLYdzuOBr",
-											"kind": "query",
-											"name": "api_key",
-											"orig": "api_key",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "league_id",
-											"orig": "league_id",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "match_id",
-											"orig": "match_id",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/sport/football/livescores",
@@ -208,6 +186,40 @@ func MakeConfig() map[string]any {
 										"lit": "livescores",
 									},
 								},
+								"parts": []any{
+									"sport",
+									"football",
+									"livescores",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.data`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "api_key",
+											"orig": "api_key",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+											"example": "ycOrrj2NLYdzuOBr",
+										},
+										map[string]any{
+											"name": "league_id",
+											"orig": "league_id",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "match_id",
+											"orig": "match_id",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+									},
+								},
 								"select": map[string]any{
 									"$action": "livescore",
 									"exist": []any{
@@ -216,37 +228,8 @@ func MakeConfig() map[string]any {
 										"match_id",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.data`",
-								},
-								"parts": []any{
-									"sport",
-									"football",
-									"livescores",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": "ycOrrj2NLYdzuOBr",
-											"kind": "query",
-											"name": "api_key",
-											"orig": "api_key",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 1639,
-											"kind": "query",
-											"name": "league_id",
-											"orig": "league_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/sport/football/schedule/basic",
@@ -264,21 +247,42 @@ func MakeConfig() map[string]any {
 										"lit": "basic",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"api_key",
-										"league_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.data`",
-								},
 								"parts": []any{
 									"sport",
 									"football",
 									"schedule",
 									"basic",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.data`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "api_key",
+											"orig": "api_key",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+											"example": "ycOrrj2NLYdzuOBr",
+										},
+										map[string]any{
+											"name": "league_id",
+											"orig": "league_id",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"reqd": true,
+											"example": 1639,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"api_key",
+										"league_id",
+									},
 								},
 							},
 						},

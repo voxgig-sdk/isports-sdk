@@ -118,6 +118,7 @@ class IsportsConfig
           'fields' => [
             [
               'name' => 'schedule',
+              'title' => 'Schedule',
               'type' => '`$ARRAY`',
             ],
           ],
@@ -128,36 +129,6 @@ class IsportsConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'example' => 'ycOrrj2NLYdzuOBr',
-                        'kind' => 'query',
-                        'name' => 'api_key',
-                        'orig' => 'api_key',
-                        'reqd' => true,
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'league_id',
-                        'orig' => 'league_id',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'season',
-                        'orig' => 'season',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'team_id',
-                        'orig' => 'team_id',
-                        'type' => '`$INTEGER`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/sport/football/stats',
@@ -172,6 +143,46 @@ class IsportsConfig
                       'lit' => 'stats',
                     ],
                   ],
+                  'parts' => [
+                    'sport',
+                    'football',
+                    'stats',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body.data`',
+                  ],
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'api_key',
+                        'orig' => 'api_key',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                        'reqd' => true,
+                        'example' => 'ycOrrj2NLYdzuOBr',
+                      ],
+                      [
+                        'name' => 'league_id',
+                        'orig' => 'league_id',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'season',
+                        'orig' => 'season',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'team_id',
+                        'orig' => 'team_id',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                      ],
+                    ],
+                  ],
                   'select' => [
                     '$action' => 'stat',
                     'exist' => [
@@ -181,41 +192,8 @@ class IsportsConfig
                       'team_id',
                     ],
                   ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body.data`',
-                  ],
-                  'parts' => [
-                    'sport',
-                    'football',
-                    'stats',
-                  ],
                 ],
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'example' => 'ycOrrj2NLYdzuOBr',
-                        'kind' => 'query',
-                        'name' => 'api_key',
-                        'orig' => 'api_key',
-                        'reqd' => true,
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'league_id',
-                        'orig' => 'league_id',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'match_id',
-                        'orig' => 'match_id',
-                        'type' => '`$INTEGER`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/sport/football/livescores',
@@ -230,6 +208,40 @@ class IsportsConfig
                       'lit' => 'livescores',
                     ],
                   ],
+                  'parts' => [
+                    'sport',
+                    'football',
+                    'livescores',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body.data`',
+                  ],
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'api_key',
+                        'orig' => 'api_key',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                        'reqd' => true,
+                        'example' => 'ycOrrj2NLYdzuOBr',
+                      ],
+                      [
+                        'name' => 'league_id',
+                        'orig' => 'league_id',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'match_id',
+                        'orig' => 'match_id',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                      ],
+                    ],
+                  ],
                   'select' => [
                     '$action' => 'livescore',
                     'exist' => [
@@ -238,37 +250,8 @@ class IsportsConfig
                       'match_id',
                     ],
                   ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body.data`',
-                  ],
-                  'parts' => [
-                    'sport',
-                    'football',
-                    'livescores',
-                  ],
                 ],
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'example' => 'ycOrrj2NLYdzuOBr',
-                        'kind' => 'query',
-                        'name' => 'api_key',
-                        'orig' => 'api_key',
-                        'reqd' => true,
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'example' => 1639,
-                        'kind' => 'query',
-                        'name' => 'league_id',
-                        'orig' => 'league_id',
-                        'reqd' => true,
-                        'type' => '`$INTEGER`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/sport/football/schedule/basic',
@@ -286,21 +269,42 @@ class IsportsConfig
                       'lit' => 'basic',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'api_key',
-                      'league_id',
-                    ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body.data`',
-                  ],
                   'parts' => [
                     'sport',
                     'football',
                     'schedule',
                     'basic',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body.data`',
+                  ],
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'api_key',
+                        'orig' => 'api_key',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                        'reqd' => true,
+                        'example' => 'ycOrrj2NLYdzuOBr',
+                      ],
+                      [
+                        'name' => 'league_id',
+                        'orig' => 'league_id',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'reqd' => true,
+                        'example' => 1639,
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'api_key',
+                      'league_id',
+                    ],
                   ],
                 ],
               ],
