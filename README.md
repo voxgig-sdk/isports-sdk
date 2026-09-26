@@ -106,11 +106,11 @@ local result, err = client:Football():load({ api_key = "example", league_id = 1 
 | Language | Package | Install |
 | --- | --- | --- |
 | TypeScript | `@voxgig-sdk/isports-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/tags) |
-| Python | `voxgig-sdk-isports` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/tags) |
-| PHP | `voxgig-sdk/isports` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/tags) |
+| Python | `voxgig-sdk-isports-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/tags) |
+| PHP | `voxgig-sdk/isports-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/isports-sdk/go` | `go get github.com/voxgig-sdk/isports-sdk/go@latest` |
-| Ruby | `voxgig-sdk-isports` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/tags) |
-| Lua | `voxgig-sdk-isports` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/tags) |
+| Ruby | `voxgig-sdk-isports-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/tags) |
+| Lua | `voxgig-sdk-isports-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/isports-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/isports-sdk/go-cli` | `go install github.com/voxgig-sdk/isports-sdk/go-cli/cmd/isports@latest` |
 | Go MCP server | `github.com/voxgig-sdk/isports-sdk/go-mcp` | `go get github.com/voxgig-sdk/isports-sdk/go-mcp@latest` |
 
@@ -353,10 +353,10 @@ forking the SDK.
 
 | Feature | Purpose |
 | --- | --- |
-| **RatelimitFeature** | Client-side rate limiting via a token bucket |
-| **RetryFeature** | Automatic retry of transient failures with exponential backoff |
-| **TestFeature** | In-memory mock transport for testing without a live server |
-| **TimeoutFeature** | Per-request timeout with transport abort |
+| **RatelimitFeature** | Rate limiting |
+| **RetryFeature** | Retry |
+| **TestFeature** | Test transport |
+| **TimeoutFeature** | Timeout |
 
 Pass custom features via the `extend` option at construction time.
 
