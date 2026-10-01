@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 IsportsUtility.registrar = ->(u) {
   u.clean = IsportsUtilities::Clean
+  u.clean_add = IsportsUtilities::CleanAdd
+  u.clean_explain = IsportsUtilities::CleanExplain
   u.done = IsportsUtilities::Done
   u.make_error = IsportsUtilities::MakeError
   u.feature_add = IsportsUtilities::FeatureAdd

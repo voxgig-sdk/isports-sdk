@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 IsportsUtility::setRegistrar(function (IsportsUtility $u): void {
     $u->clean = [IsportsClean::class, 'call'];
+    $u->clean_add = [IsportsClean::class, 'add'];
+    $u->clean_explain = [IsportsDone::class, 'clean_explain'];
     $u->done = [IsportsDone::class, 'call'];
     $u->make_error = [IsportsMakeError::class, 'call'];
     $u->feature_add = [IsportsFeatureAdd::class, 'call'];

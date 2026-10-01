@@ -159,7 +159,7 @@ class Config {
                                     },
                                     {
                                         "name": "league_id",
-                                        "orig": "league_id",
+                                        "orig": "leagueId",
                                         "type": "`$INTEGER`",
                                         "kind": "query"
                                     },
@@ -171,7 +171,7 @@ class Config {
                                     },
                                     {
                                         "name": "team_id",
-                                        "orig": "team_id",
+                                        "orig": "teamId",
                                         "type": "`$INTEGER`",
                                         "kind": "query"
                                     }
@@ -224,13 +224,13 @@ class Config {
                                     },
                                     {
                                         "name": "league_id",
-                                        "orig": "league_id",
+                                        "orig": "leagueId",
                                         "type": "`$INTEGER`",
                                         "kind": "query"
                                     },
                                     {
                                         "name": "match_id",
-                                        "orig": "match_id",
+                                        "orig": "matchId",
                                         "type": "`$INTEGER`",
                                         "kind": "query"
                                     }
@@ -286,7 +286,7 @@ class Config {
                                     },
                                     {
                                         "name": "league_id",
-                                        "orig": "league_id",
+                                        "orig": "leagueId",
                                         "type": "`$INTEGER`",
                                         "kind": "query",
                                         "reqd": true,

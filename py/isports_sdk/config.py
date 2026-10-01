@@ -168,7 +168,7 @@ def make_config():
                     },
                     {
                       "name": "league_id",
-                      "orig": "league_id",
+                      "orig": "leagueId",
                       "type": "`$INTEGER`",
                       "kind": "query",
                     },
@@ -180,7 +180,7 @@ def make_config():
                     },
                     {
                       "name": "team_id",
-                      "orig": "team_id",
+                      "orig": "teamId",
                       "type": "`$INTEGER`",
                       "kind": "query",
                     },
@@ -233,13 +233,13 @@ def make_config():
                     },
                     {
                       "name": "league_id",
-                      "orig": "league_id",
+                      "orig": "leagueId",
                       "type": "`$INTEGER`",
                       "kind": "query",
                     },
                     {
                       "name": "match_id",
-                      "orig": "match_id",
+                      "orig": "matchId",
                       "type": "`$INTEGER`",
                       "kind": "query",
                     },
@@ -295,7 +295,7 @@ def make_config():
                     },
                     {
                       "name": "league_id",
-                      "orig": "league_id",
+                      "orig": "leagueId",
                       "type": "`$INTEGER`",
                       "kind": "query",
                       "reqd": True,

@@ -133,7 +133,7 @@
                         "a": true,
                         "k": "query",
                         "n": "league_id",
-                        "or": "league_id",
+                        "or": "leagueId",
                         "r": false,
                         "t": "`$INTEGER`"
                       },
@@ -149,7 +149,7 @@
                         "a": true,
                         "k": "query",
                         "n": "team_id",
-                        "or": "team_id",
+                        "or": "teamId",
                         "r": false,
                         "t": "`$INTEGER`"
                       }
@@ -206,7 +206,7 @@
                         "a": true,
                         "k": "query",
                         "n": "league_id",
-                        "or": "league_id",
+                        "or": "leagueId",
                         "r": false,
                         "t": "`$INTEGER`"
                       },
@@ -214,7 +214,7 @@
                         "a": true,
                         "k": "query",
                         "n": "match_id",
-                        "or": "match_id",
+                        "or": "matchId",
                         "r": false,
                         "t": "`$INTEGER`"
                       }
@@ -271,7 +271,7 @@
                         "ex": 1639,
                         "k": "query",
                         "n": "league_id",
-                        "or": "league_id",
+                        "or": "leagueId",
                         "r": true,
                         "t": "`$INTEGER`"
                       }
@@ -797,7 +797,12 @@
         },
         "base": "http://localhost:8000",
         "clean": {
-          "keys": "key,token,id"
+          "active": true,
+          "hint": "0",
+          "keys": "key,secret,token,password,passwd,authorization,cookie,credential,signature",
+          "mask": "[redacted]",
+          "min": "4",
+          "values": ""
         },
         "entity": {
           "`$CHILD`": {

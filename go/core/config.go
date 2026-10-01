@@ -143,7 +143,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "league_id",
-											"orig": "league_id",
+											"orig": "leagueId",
 											"type": "`$INTEGER`",
 											"kind": "query",
 										},
@@ -155,7 +155,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "team_id",
-											"orig": "team_id",
+											"orig": "teamId",
 											"type": "`$INTEGER`",
 											"kind": "query",
 										},
@@ -208,13 +208,13 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "league_id",
-											"orig": "league_id",
+											"orig": "leagueId",
 											"type": "`$INTEGER`",
 											"kind": "query",
 										},
 										map[string]any{
 											"name": "match_id",
-											"orig": "match_id",
+											"orig": "matchId",
 											"type": "`$INTEGER`",
 											"kind": "query",
 										},
@@ -270,7 +270,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "league_id",
-											"orig": "league_id",
+											"orig": "leagueId",
 											"type": "`$INTEGER`",
 											"kind": "query",
 											"reqd": true,

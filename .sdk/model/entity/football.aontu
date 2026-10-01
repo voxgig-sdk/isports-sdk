@@ -37,7 +37,7 @@ main: kit: entity: football: {
               {
                 k: "query"
                 n: "league_id"
-                or: "league_id"
+                or: "leagueId"
                 r: false
                 t: "`$INTEGER`"
               }
@@ -51,7 +51,7 @@ main: kit: entity: football: {
               {
                 k: "query"
                 n: "team_id"
-                or: "team_id"
+                or: "teamId"
                 r: false
                 t: "`$INTEGER`"
               }
@@ -103,14 +103,14 @@ main: kit: entity: football: {
               {
                 k: "query"
                 n: "league_id"
-                or: "league_id"
+                or: "leagueId"
                 r: false
                 t: "`$INTEGER`"
               }
               {
                 k: "query"
                 n: "match_id"
-                or: "match_id"
+                or: "matchId"
                 r: false
                 t: "`$INTEGER`"
               }
@@ -162,7 +162,7 @@ main: kit: entity: football: {
                 ex: 1639
                 k: "query"
                 n: "league_id"
-                or: "league_id"
+                or: "leagueId"
                 r: true
                 t: "`$INTEGER`"
               }
