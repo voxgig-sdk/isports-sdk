@@ -3,5 +3,15 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "API key required for authentication. You can obtain your API key from the iSports API dashboard.",
+      "Successful response with football schedule and results data",
+      "Successful response with football statistics data",
+      "Successful response with live football scores",
+      "The iSports API provides developers with access to various sports data, including live scores, statistics, and historical databases for football and basketball. Users can leverage this API to integrate real-time sports information into their applications, enhancing user engagement and experience.",
+      "iSports API Server"
+    ]
+  }
 }

@@ -114,7 +114,7 @@
                 {
                   "a": true,
                   "co": {
-                    "id": "GET /sport/football/stats",
+                    "id": "GET /sport/football/schedule/basic",
                     "source": "openapi3",
                     "version": 2
                   },
@@ -131,43 +131,29 @@
                       },
                       {
                         "a": true,
+                        "ex": 1639,
                         "k": "query",
                         "n": "league_id",
                         "or": "leagueId",
-                        "r": false,
-                        "t": "`$INTEGER`"
-                      },
-                      {
-                        "a": true,
-                        "k": "query",
-                        "n": "season",
-                        "or": "season",
-                        "r": false,
-                        "t": "`$STRING`"
-                      },
-                      {
-                        "a": true,
-                        "k": "query",
-                        "n": "team_id",
-                        "or": "teamId",
-                        "r": false,
+                        "r": true,
                         "t": "`$INTEGER`"
                       }
                     ]
                   },
                   "k": "http",
                   "m": "GET",
-                  "o": "/sport/football/stats",
+                  "o": "/sport/football/schedule/basic",
                   "q": {
-                    "$action": "stat",
                     "exist": [
                       "api_key",
-                      "league_id",
-                      "season",
-                      "team_id"
+                      "league_id"
                     ]
                   },
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "sport"
@@ -176,7 +162,10 @@
                       "lit": "football"
                     },
                     {
-                      "lit": "stats"
+                      "lit": "schedule"
+                    },
+                    {
+                      "lit": "basic"
                     }
                   ],
                   "t": {
@@ -226,12 +215,14 @@
                   "q": {
                     "$action": "livescore",
                     "exist": [
-                      "api_key",
-                      "league_id",
-                      "match_id"
+                      "api_key"
                     ]
                   },
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "sport"
@@ -251,7 +242,7 @@
                 {
                   "a": true,
                   "co": {
-                    "id": "GET /sport/football/schedule/basic",
+                    "id": "GET /sport/football/stats",
                     "source": "openapi3",
                     "version": 2
                   },
@@ -268,25 +259,44 @@
                       },
                       {
                         "a": true,
-                        "ex": 1639,
                         "k": "query",
                         "n": "league_id",
                         "or": "leagueId",
-                        "r": true,
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "season",
+                        "or": "season",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "team_id",
+                        "or": "teamId",
+                        "r": false,
                         "t": "`$INTEGER`"
                       }
                     ]
                   },
                   "k": "http",
                   "m": "GET",
-                  "o": "/sport/football/schedule/basic",
+                  "o": "/sport/football/stats",
                   "q": {
+                    "$action": "stat",
                     "exist": [
-                      "api_key",
-                      "league_id"
+                      "api_key"
                     ]
                   },
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "sport"
@@ -295,10 +305,7 @@
                       "lit": "football"
                     },
                     {
-                      "lit": "schedule"
-                    },
-                    {
-                      "lit": "basic"
+                      "lit": "stats"
                     }
                   ],
                   "t": {
@@ -636,6 +643,7 @@
             },
             "optspec": {
               "clearTimer": "`$FUNCTION`",
+              "now": "`$FUNCTION`",
               "setTimer": "`$FUNCTION`"
             },
             "strict": false
@@ -786,7 +794,7 @@
       "optspec": {
         "allow": {
           "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
-          "op": "create,update,load,list,remove,command,direct,graphql"
+          "op": "create,update,patch,load,list,remove,command,direct,graphql"
         },
         "apikey": "",
         "auth": {
@@ -839,6 +847,11 @@
         "top": {
           "active": true
         }
+      },
+      "publisher": {
+        "name": "",
+        "security": "",
+        "url": ""
       },
       "repo": {
         "host": "github.com",
@@ -1069,7 +1082,10 @@
             "version": "0.0.1"
           },
           "superseded": [],
-          "title": "Go MCP server"
+          "title": "Go MCP server",
+          "tool": {
+            "write": false
+          }
         },
         "lua": {
           "active": true,
@@ -1446,6 +1462,17 @@
           "base": "",
           "strict": true
         }
+      },
+      "text": {
+        "about_md": "",
+        "docs_url": "",
+        "entity_desc": {},
+        "homepage": "",
+        "meta_source": "",
+        "summary": "",
+        "tagline": "",
+        "title": "",
+        "website": ""
       }
     }
   },

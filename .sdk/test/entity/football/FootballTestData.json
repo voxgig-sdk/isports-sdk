@@ -23,7 +23,7 @@
     }
   },
   "requests": {
-    "GET /sport/football/stats": {
+    "GET /sport/football/schedule/basic": {
       "provenance": "operation-contract",
       "version": 2,
       "source": "openapi3"
@@ -33,7 +33,7 @@
       "version": 2,
       "source": "openapi3"
     },
-    "GET /sport/football/schedule/basic": {
+    "GET /sport/football/stats": {
       "provenance": "operation-contract",
       "version": 2,
       "source": "openapi3"

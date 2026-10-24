@@ -96,6 +96,7 @@ def make_config():
         },
         "optspec": {
           "clearTimer": "`$FUNCTION`",
+          "now": "`$FUNCTION`",
           "setTimer": "`$FUNCTION`",
         },
         "strict": False,
@@ -131,6 +132,126 @@ def make_config():
             "input": "data",
             "name": "load",
             "points": [
+              {
+                "kind": "http",
+                "method": "GET",
+                "orig": "/sport/football/schedule/basic",
+                "segments": [
+                  {
+                    "lit": "sport",
+                  },
+                  {
+                    "lit": "football",
+                  },
+                  {
+                    "lit": "schedule",
+                  },
+                  {
+                    "lit": "basic",
+                  },
+                ],
+                "parts": [
+                  "sport",
+                  "football",
+                  "schedule",
+                  "basic",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "api_key",
+                      "orig": "api_key",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "reqd": True,
+                      "example": "ycOrrj2NLYdzuOBr",
+                    },
+                    {
+                      "name": "league_id",
+                      "orig": "leagueId",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "reqd": True,
+                      "example": 1639,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "api_key",
+                    "league_id",
+                  ],
+                },
+                "response": {
+                  "kind": "json",
+                  "media": "application/json",
+                },
+              },
+              {
+                "kind": "http",
+                "method": "GET",
+                "orig": "/sport/football/livescores",
+                "segments": [
+                  {
+                    "lit": "sport",
+                  },
+                  {
+                    "lit": "football",
+                  },
+                  {
+                    "lit": "livescores",
+                  },
+                ],
+                "parts": [
+                  "sport",
+                  "football",
+                  "livescores",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "api_key",
+                      "orig": "api_key",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "reqd": True,
+                      "example": "ycOrrj2NLYdzuOBr",
+                    },
+                    {
+                      "name": "league_id",
+                      "orig": "leagueId",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "match_id",
+                      "orig": "matchId",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                    },
+                  ],
+                },
+                "select": {
+                  "$action": "livescore",
+                  "exist": [
+                    "api_key",
+                  ],
+                },
+                "response": {
+                  "kind": "json",
+                  "media": "application/json",
+                },
+              },
               {
                 "kind": "http",
                 "method": "GET",
@@ -190,124 +311,11 @@ def make_config():
                   "$action": "stat",
                   "exist": [
                     "api_key",
-                    "league_id",
-                    "season",
-                    "team_id",
                   ],
                 },
-              },
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/sport/football/livescores",
-                "segments": [
-                  {
-                    "lit": "sport",
-                  },
-                  {
-                    "lit": "football",
-                  },
-                  {
-                    "lit": "livescores",
-                  },
-                ],
-                "parts": [
-                  "sport",
-                  "football",
-                  "livescores",
-                ],
-                "rename": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.data`",
-                },
-                "args": {
-                  "query": [
-                    {
-                      "name": "api_key",
-                      "orig": "api_key",
-                      "type": "`$STRING`",
-                      "kind": "query",
-                      "reqd": True,
-                      "example": "ycOrrj2NLYdzuOBr",
-                    },
-                    {
-                      "name": "league_id",
-                      "orig": "leagueId",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                    },
-                    {
-                      "name": "match_id",
-                      "orig": "matchId",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                    },
-                  ],
-                },
-                "select": {
-                  "$action": "livescore",
-                  "exist": [
-                    "api_key",
-                    "league_id",
-                    "match_id",
-                  ],
-                },
-              },
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/sport/football/schedule/basic",
-                "segments": [
-                  {
-                    "lit": "sport",
-                  },
-                  {
-                    "lit": "football",
-                  },
-                  {
-                    "lit": "schedule",
-                  },
-                  {
-                    "lit": "basic",
-                  },
-                ],
-                "parts": [
-                  "sport",
-                  "football",
-                  "schedule",
-                  "basic",
-                ],
-                "rename": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.data`",
-                },
-                "args": {
-                  "query": [
-                    {
-                      "name": "api_key",
-                      "orig": "api_key",
-                      "type": "`$STRING`",
-                      "kind": "query",
-                      "reqd": True,
-                      "example": "ycOrrj2NLYdzuOBr",
-                    },
-                    {
-                      "name": "league_id",
-                      "orig": "leagueId",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "reqd": True,
-                      "example": 1639,
-                    },
-                  ],
-                },
-                "select": {
-                  "exist": [
-                    "api_key",
-                    "league_id",
-                  ],
+                "response": {
+                  "kind": "json",
+                  "media": "application/json",
                 },
               },
             ],

@@ -14,7 +14,7 @@ An entity groups related API operations. An operation can have several routes wi
 
 ### Football
 
-Results: Successful response with football statistics data; Successful response with live football scores; Successful response with football schedule and results data.
+Results: Successful response with football schedule and results data; Successful response with live football scores; Successful response with football statistics data.
 
 SDK operations: `load`.
 
@@ -24,9 +24,9 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 
 | Entity | SDK operation | HTTP route | Authentication |
 | --- | --- | --- | --- |
-| Football | `load` | `GET /sport/football/stats` | Required |
-| Football | `load` | `GET /sport/football/livescores` | Required |
 | Football | `load` | `GET /sport/football/schedule/basic` | Required |
+| Football | `load` | `GET /sport/football/livescores` | Required |
+| Football | `load` | `GET /sport/football/stats` | Required |
 
 ## Connect to the API
 

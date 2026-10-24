@@ -13,132 +13,6 @@ const PLAN = [
         "accessor": "Football",
         "op": "load",
         "method": "GET",
-        "path": "/sport/football/stats",
-        "action": "stat",
-        "args": [],
-        "select": {
-            "api_key": "ycOrrj2NLYdzuOBr",
-            "league_id": "v1",
-            "season": "v1",
-            "team_id": "v1"
-        },
-        "headers": [],
-        "query": [
-            "api_key",
-            "leagueId",
-            "teamId",
-            "season"
-        ],
-        "auth": [
-            [
-                {
-                    "in": "query",
-                    "name": "api_key"
-                }
-            ]
-        ],
-        "status": 200,
-        "sample": {
-            "code": 1,
-            "message": "x",
-            "data": {
-                "stats": {
-                    "playerStats": [
-                        {
-                            "appearances": 1,
-                            "assists": 1,
-                            "goals": 1,
-                            "playerId": 1,
-                            "playerName": "x"
-                        }
-                    ],
-                    "teamStats": {
-                        "draws": 1,
-                        "goalsAgainst": 1,
-                        "goalsFor": 1,
-                        "losses": 1,
-                        "matchesPlayed": 1,
-                        "points": 1,
-                        "wins": 1
-                    }
-                }
-            }
-        },
-        "idField": "id"
-    },
-    {
-        "entity": "football",
-        "accessor": "Football",
-        "op": "load",
-        "method": "GET",
-        "path": "/sport/football/livescores",
-        "action": "livescore",
-        "args": [],
-        "select": {
-            "api_key": "ycOrrj2NLYdzuOBr",
-            "league_id": "v1",
-            "match_id": "v1"
-        },
-        "headers": [],
-        "query": [
-            "api_key",
-            "leagueId",
-            "matchId"
-        ],
-        "auth": [
-            [
-                {
-                    "in": "query",
-                    "name": "api_key"
-                }
-            ]
-        ],
-        "status": 200,
-        "sample": {
-            "code": 1,
-            "message": "x",
-            "data": {
-                "matches": [
-                    {
-                        "awayTeam": {
-                            "logo": "x",
-                            "teamId": 1,
-                            "teamName": "x"
-                        },
-                        "events": [
-                            {
-                                "eventType": "goal",
-                                "minute": 1,
-                                "player": "x",
-                                "team": "x"
-                            }
-                        ],
-                        "homeTeam": {
-                            "logo": "x",
-                            "teamId": 1,
-                            "teamName": "x"
-                        },
-                        "leagueId": 1,
-                        "leagueName": "x",
-                        "matchId": 1,
-                        "matchTime": "2026-01-01T00:00:00Z",
-                        "minute": 1,
-                        "score": {
-                            "away": 1,
-                            "home": 1
-                        },
-                        "status": "scheduled"
-                    }
-                ]
-            }
-        },
-        "idField": "id"
-    },
-    {
-        "entity": "football",
-        "accessor": "Football",
-        "op": "load",
-        "method": "GET",
         "path": "/sport/football/schedule/basic",
         "args": [],
         "select": {
@@ -146,9 +20,23 @@ const PLAN = [
             "league_id": "v1"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "api_key",
             "leagueId"
+        ],
+        "queryArgs": [
+            {
+                "name": "api_key",
+                "wire": "api_key"
+            },
+            {
+                "name": "league_id",
+                "wire": "leagueId"
+            }
         ],
         "auth": [
             [
@@ -165,21 +53,180 @@ const PLAN = [
             "data": {
                 "schedule": [
                     {
-                        "awayTeam": "x",
-                        "homeTeam": "x",
-                        "leagueId": 1,
                         "matchId": 1,
+                        "leagueId": 1,
+                        "homeTeam": "x",
+                        "awayTeam": "x",
                         "matchTime": "2026-01-01T00:00:00Z",
+                        "status": "x",
                         "score": {
-                            "away": 1,
-                            "home": 1
-                        },
-                        "status": "x"
+                            "home": 1,
+                            "away": 1
+                        }
                     }
                 ]
             }
         },
-        "idField": "id"
+        "idField": "id",
+        "ownQuery": "api_key"
+    },
+    {
+        "entity": "football",
+        "accessor": "Football",
+        "op": "load",
+        "method": "GET",
+        "path": "/sport/football/livescores",
+        "action": "livescore",
+        "args": [],
+        "select": {
+            "api_key": "ycOrrj2NLYdzuOBr",
+            "match_id": "v1"
+        },
+        "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
+        "query": [
+            "api_key",
+            "leagueId",
+            "matchId"
+        ],
+        "queryArgs": [
+            {
+                "name": "api_key",
+                "wire": "api_key"
+            },
+            {
+                "name": "match_id",
+                "wire": "matchId"
+            }
+        ],
+        "auth": [
+            [
+                {
+                    "in": "query",
+                    "name": "api_key"
+                }
+            ]
+        ],
+        "status": 200,
+        "sample": {
+            "code": 1,
+            "message": "x",
+            "data": {
+                "matches": [
+                    {
+                        "matchId": 1,
+                        "leagueId": 1,
+                        "leagueName": "x",
+                        "homeTeam": {
+                            "teamId": 1,
+                            "teamName": "x",
+                            "logo": "x"
+                        },
+                        "awayTeam": {
+                            "teamId": 1,
+                            "teamName": "x",
+                            "logo": "x"
+                        },
+                        "score": {
+                            "home": 1,
+                            "away": 1
+                        },
+                        "matchTime": "2026-01-01T00:00:00Z",
+                        "status": "scheduled",
+                        "minute": 1,
+                        "events": [
+                            {
+                                "eventType": "goal",
+                                "minute": 1,
+                                "player": "x",
+                                "team": "x"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "idField": "id",
+        "ownQuery": "api_key"
+    },
+    {
+        "entity": "football",
+        "accessor": "Football",
+        "op": "load",
+        "method": "GET",
+        "path": "/sport/football/stats",
+        "action": "stat",
+        "args": [],
+        "select": {
+            "api_key": "ycOrrj2NLYdzuOBr",
+            "season": "v1",
+            "team_id": "v1"
+        },
+        "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
+        "query": [
+            "api_key",
+            "leagueId",
+            "teamId",
+            "season"
+        ],
+        "queryArgs": [
+            {
+                "name": "api_key",
+                "wire": "api_key"
+            },
+            {
+                "name": "season",
+                "wire": "season"
+            },
+            {
+                "name": "team_id",
+                "wire": "teamId"
+            }
+        ],
+        "auth": [
+            [
+                {
+                    "in": "query",
+                    "name": "api_key"
+                }
+            ]
+        ],
+        "status": 200,
+        "sample": {
+            "code": 1,
+            "message": "x",
+            "data": {
+                "stats": {
+                    "teamStats": {
+                        "matchesPlayed": 1,
+                        "wins": 1,
+                        "draws": 1,
+                        "losses": 1,
+                        "goalsFor": 1,
+                        "goalsAgainst": 1,
+                        "points": 1
+                    },
+                    "playerStats": [
+                        {
+                            "playerId": 1,
+                            "playerName": "x",
+                            "goals": 1,
+                            "assists": 1,
+                            "appearances": 1
+                        }
+                    ]
+                }
+            }
+        },
+        "idField": "id",
+        "ownQuery": "api_key"
     }
 ];
 (0, node_test_1.describe)('definition', () => {

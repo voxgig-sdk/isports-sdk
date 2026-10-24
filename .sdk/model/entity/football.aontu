@@ -20,7 +20,7 @@ main: kit: entity: football: {
       points: [
         {
           co: {
-            id: "GET /sport/football/stats"
+            id: "GET /sport/football/schedule/basic"
             source: "openapi3"
             version: 2
           }
@@ -35,38 +35,26 @@ main: kit: entity: football: {
                 t: "`$STRING`"
               }
               {
+                ex: 1639
                 k: "query"
                 n: "league_id"
                 or: "leagueId"
-                r: false
-                t: "`$INTEGER`"
-              }
-              {
-                k: "query"
-                n: "season"
-                or: "season"
-                r: false
-                t: "`$STRING`"
-              }
-              {
-                k: "query"
-                n: "team_id"
-                or: "teamId"
-                r: false
+                r: true
                 t: "`$INTEGER`"
               }
             ]
           }
           m: "GET"
-          o: "/sport/football/stats"
+          o: "/sport/football/schedule/basic"
           q: {
-            "$action": "stat"
             exist: [
               "api_key"
               "league_id"
-              "season"
-              "team_id"
             ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
@@ -76,7 +64,10 @@ main: kit: entity: football: {
               lit: "football"
             }
             {
-              lit: "stats"
+              lit: "schedule"
+            }
+            {
+              lit: "basic"
             }
           ]
           t: {
@@ -122,9 +113,11 @@ main: kit: entity: football: {
             "$action": "livescore"
             exist: [
               "api_key"
-              "league_id"
-              "match_id"
             ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
@@ -144,7 +137,7 @@ main: kit: entity: football: {
         }
         {
           co: {
-            id: "GET /sport/football/schedule/basic"
+            id: "GET /sport/football/stats"
             source: "openapi3"
             version: 2
           }
@@ -159,22 +152,39 @@ main: kit: entity: football: {
                 t: "`$STRING`"
               }
               {
-                ex: 1639
                 k: "query"
                 n: "league_id"
                 or: "leagueId"
-                r: true
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "season"
+                or: "season"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "team_id"
+                or: "teamId"
+                r: false
                 t: "`$INTEGER`"
               }
             ]
           }
           m: "GET"
-          o: "/sport/football/schedule/basic"
+          o: "/sport/football/stats"
           q: {
+            "$action": "stat"
             exist: [
               "api_key"
-              "league_id"
             ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
@@ -184,10 +194,7 @@ main: kit: entity: football: {
               lit: "football"
             }
             {
-              lit: "schedule"
-            }
-            {
-              lit: "basic"
+              lit: "stats"
             }
           ]
           t: {

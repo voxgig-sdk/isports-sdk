@@ -71,6 +71,7 @@ func MakeConfig() map[string]any {
 				},
 				"optspec": map[string]any{
 					"clearTimer": "`$FUNCTION`",
+					"now": "`$FUNCTION`",
 					"setTimer": "`$FUNCTION`",
 				},
 				"strict": false,
@@ -106,6 +107,126 @@ func MakeConfig() map[string]any {
 						"input": "data",
 						"name": "load",
 						"points": []any{
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/sport/football/schedule/basic",
+								"segments": []any{
+									map[string]any{
+										"lit": "sport",
+									},
+									map[string]any{
+										"lit": "football",
+									},
+									map[string]any{
+										"lit": "schedule",
+									},
+									map[string]any{
+										"lit": "basic",
+									},
+								},
+								"parts": []any{
+									"sport",
+									"football",
+									"schedule",
+									"basic",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.data`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "api_key",
+											"orig": "api_key",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+											"example": "ycOrrj2NLYdzuOBr",
+										},
+										map[string]any{
+											"name": "league_id",
+											"orig": "leagueId",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"reqd": true,
+											"example": 1639,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"api_key",
+										"league_id",
+									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/sport/football/livescores",
+								"segments": []any{
+									map[string]any{
+										"lit": "sport",
+									},
+									map[string]any{
+										"lit": "football",
+									},
+									map[string]any{
+										"lit": "livescores",
+									},
+								},
+								"parts": []any{
+									"sport",
+									"football",
+									"livescores",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.data`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "api_key",
+											"orig": "api_key",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+											"example": "ycOrrj2NLYdzuOBr",
+										},
+										map[string]any{
+											"name": "league_id",
+											"orig": "leagueId",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "match_id",
+											"orig": "matchId",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+									},
+								},
+								"select": map[string]any{
+									"$action": "livescore",
+									"exist": []any{
+										"api_key",
+									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
+							},
 							map[string]any{
 								"kind": "http",
 								"method": "GET",
@@ -165,124 +286,11 @@ func MakeConfig() map[string]any {
 									"$action": "stat",
 									"exist": []any{
 										"api_key",
-										"league_id",
-										"season",
-										"team_id",
 									},
 								},
-							},
-							map[string]any{
-								"kind": "http",
-								"method": "GET",
-								"orig": "/sport/football/livescores",
-								"segments": []any{
-									map[string]any{
-										"lit": "sport",
-									},
-									map[string]any{
-										"lit": "football",
-									},
-									map[string]any{
-										"lit": "livescores",
-									},
-								},
-								"parts": []any{
-									"sport",
-									"football",
-									"livescores",
-								},
-								"rename": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.data`",
-								},
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"name": "api_key",
-											"orig": "api_key",
-											"type": "`$STRING`",
-											"kind": "query",
-											"reqd": true,
-											"example": "ycOrrj2NLYdzuOBr",
-										},
-										map[string]any{
-											"name": "league_id",
-											"orig": "leagueId",
-											"type": "`$INTEGER`",
-											"kind": "query",
-										},
-										map[string]any{
-											"name": "match_id",
-											"orig": "matchId",
-											"type": "`$INTEGER`",
-											"kind": "query",
-										},
-									},
-								},
-								"select": map[string]any{
-									"$action": "livescore",
-									"exist": []any{
-										"api_key",
-										"league_id",
-										"match_id",
-									},
-								},
-							},
-							map[string]any{
-								"kind": "http",
-								"method": "GET",
-								"orig": "/sport/football/schedule/basic",
-								"segments": []any{
-									map[string]any{
-										"lit": "sport",
-									},
-									map[string]any{
-										"lit": "football",
-									},
-									map[string]any{
-										"lit": "schedule",
-									},
-									map[string]any{
-										"lit": "basic",
-									},
-								},
-								"parts": []any{
-									"sport",
-									"football",
-									"schedule",
-									"basic",
-								},
-								"rename": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.data`",
-								},
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"name": "api_key",
-											"orig": "api_key",
-											"type": "`$STRING`",
-											"kind": "query",
-											"reqd": true,
-											"example": "ycOrrj2NLYdzuOBr",
-										},
-										map[string]any{
-											"name": "league_id",
-											"orig": "leagueId",
-											"type": "`$INTEGER`",
-											"kind": "query",
-											"reqd": true,
-											"example": 1639,
-										},
-									},
-								},
-								"select": map[string]any{
-									"exist": []any{
-										"api_key",
-										"league_id",
-									},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},
